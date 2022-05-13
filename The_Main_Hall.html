@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<style>
+		body {
+			background-color: white;
+			background-image: url("MainHall.webp");
+			background-size: 100% 150%;
+			background-repeat: no-repeat;
+		}
+	</style>
+	<script>
+		function checkPassword(){
+			passObject = document.getElementById("maslo");
+			if (passObject.value == "Maslo")
+			{
+				document.getElementById("GoodAnswer").style.display = "block";
+				document.getElementById("BadAnswer").style.display = "none";
+				document.getElementById("NarrateGoodAnswer").style.display = "block";
+				document.getElementById("ForwardButton").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("GoodAnswer").style.display = "none";
+				document.getElementById("BadAnswer").style.display = "block";
+				document.getElementById("NarrateGoodAnswer").style.display = "none";
+				document.getElementById("ForwardButton").style.display = "none";
+			}
+		}
+
+		function ogien() {
+			window.location.href = "Fire1.html";
+		}
+		function las() {
+			window.location.href = "Woods1.html";
+		}
+		function woda() {
+			window.location.href = "Water1.html";
+		}
+		function skala() {
+			window.location.href = "Rock1.html";
+		}
+
+	</script>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<h3 class="narrate">Znów stoisz pośrodku Sali Głównej, jednak wciąż nie jesteś pewna czy zdobyłaś już cały klucz. 
+			Możesz wybrać miejsce, do którego pragniesz się udać bądź spróbować włożyć klucz na miejsce.</h3>
+		<div id="Button4Div">
+			<div class="doorDiv" id="RedDoorDiv" onclick="ogien()">
+				<p>Pieczara Ognia</p>
+			</div>
+			<div class="doorDiv" id="GreenDoorDiv" onclick="las()">
+				<p>Furtka Leśna</p>
+			</div>
+			<div class="doorDiv" id="BlueDoorDiv" onclick="woda()">
+				<p>Wir Wodny</p>
+			</div>
+			<div class="doorDiv" id="BrownDoorDiv" onclick="skala()">
+				<p>Jaskinia Skalna</p>
+			</div>
+		</div>
+		<h1>Czy masz już klucz?</h1>
+		<div id="InputButtonDiv">
+			<input type="text" id="maslo">
+			<button class="button-5" onclick="checkPassword()">Sprawdź</button>
+		</div>
+		<div>
+			<h3 id="BadAnswer">A niech to! Nic z tego</h3>
+			<h3 id="GoodAnswer">Udało się!</h3>
+		</div>
+		<h3 id="NarrateGoodAnswer" class="narrate" style="display:none">W końcu pasuje! Drzwi do skarbca otwierają się a ty czujesz narastające poczucie dumy i nutkę podniecenia.</h3>
+		<button class="button-5" id="ForwardButton" onclick="window.location.href='The_Treasure_Hoard.html'">Naprzód!</button>
+	</div>
+</body>
+</html>

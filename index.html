@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<style>
+		body {
+			background-color: white;
+			background-image: url("desertDay.jpg");
+		}
+	</style>
+	<script>
+		function noClick() {
+			main = document.getElementById("MainDiv");
+			logo = document.getElementById("Logo");
+			resp = document.getElementById("resp-div");
+
+			main.style.display = "none";
+			document.body.style.backgroundColor = "black";
+			document.body.style.backgroundImage = "none";
+			logo.style.borderColor = "red";
+			resp.style.display = "block";
+		}
+
+		function yesClick() {
+			document.getElementById("move-forward").style.display = "block";
+			document.getElementById("Logo").style.borderColor = "rgb(143, 219, 29)";
+			document.body.style.backgroundImage = "url('desertSunset.jpg')";
+			document.getElementById("B1").onclick = "";
+			document.getElementById("B2").style.display = "none";
+		}
+	</script>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<h3 class="narrate">Budzisz się nie wiadomo w jakim miejscu, nie wiadomo w jakim czasie. Nie pamiętasz nic oprócz tego, co pamiętasz.
+			 Wiesz, że jest ranek. Przed sobą widzisz wrota wykonane jakby ze srebra z kolorowymi ornamentami, zaś wokoło nic - goła, szara pustynia.
+			 Zaczynasz się zastanawiać kto lub co mogło cię tu sprowadzić, lecz wtem słyszysz głos</h3>
+		<br>
+		<h1>Witaj w naszym skarbcu</h1>
+		<br>
+		<h3 class="narrate">Skąd dobiegał ten głos? Rozglądasz się jeszcze raz wokoło, ale w tym nudnym jednostajnym krajobrazie nic się nie zmieniło. Głos odzywa się jednak ponownie</h3>
+		<br>
+		<h1>Aby dostać się do nagrody, czeka cię seria wymagających zadań. Czy jesteś gotowa przyjąć wyzwanie?</h3>
+		<br>
+		<h3 class="narrate">Nadal nie jesteś pewna co to za głos ani skąd pochodzi. Próbujesz go początkowo zignorować i rozejrzeć się po okolicy. Jednak po wyczerpujących godzinach spacerowania
+			 jesteś jedynie w stanie stwierdzić, że w pobliżu nie ma nic równie godnego uwagi jak ta olbrzymia budowla. Z braku innych zajęć decydujesz się podjąć decyzję i odpowiedzieć na pytanie głosu.
+		</h3>
+		<div id="Button2Div">
+			<button id="B1" class="button-5" onclick="yesClick()">Tak</button>
+			<button id="B2" class="button-5" onclick="noClick()">Nie</button>
+		</div>
+		<div id="move-forward">
+			<h3 id="Yes-response">TUTURUUU! Super! Zatem lecimy dalej</h3>
+			<h3 class="narrate">Zdaje się, że o taką odpowiedź chodziło. Drzwi budowli powoli się otwierają, zaś w międzyczasie zaczyna się ściemniać.
+				Z oddali słyszysz niepokojące mruczenia i bliżej nieokreślone dźwięki. "Czy to pjeski?" przychodzi ci na myśl, jednak po chwili powraca do życia zdrowy rozsądek.
+				Przypominasz sobie, że to środek pustyni a ty nie masz nic do picia, dlatego decydujesz się znaleźć schronienie w budowli z nadzieją na znalezienie czegoś uzytecznego w środku.</h3>
+			<div>
+				<button class="button-5" onclick="window.location.href='The_Main_Hall_FirstTouch.html'">OK !</button>
+			</div>
+		</div>
+	</div>
+	<div class="middle-div" id="resp-div">
+		<h1 id="No-response">ZŁA ODPOWIEDŹ<br>ŻYJESZ NA ODWRÓT</h1>
+	</div>
+</body>
+</html>

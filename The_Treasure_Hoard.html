@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<style>
+		body {
+			background-color: goldenrod;
+		}
+	</style>
+	
+	<script>
+		function mainHall() {
+			window.location.href = "The_Main_Hall.html";
+		}
+
+		function checkPassword(){
+			passObject = document.getElementById("lastA");
+			answer = passObject.value;
+			if (answer.toLowerCase() == "lemat")
+			{
+				document.getElementById("GoodAnswer").style.display = "block";
+				document.getElementById("BadAnswer").style.display = "none";
+				document.getElementById("LastHallButton").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("GoodAnswer").style.display = "none";
+				document.getElementById("BadAnswer").style.display = "block";
+				document.getElementById("LastHallButton").style.display = "none";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<div id="ReturnButtonDiv">
+			<button class="button-5" onclick="mainHall()">Powrót</button>
+		</div>
+		<h1 id="welcome-p">Skarbiec</h1>
+		<h3 class="narrate"></h3>
+		<br>
+		<img id="lastQ" src="LastQ.png"/>
+		<div id="InputButtonDiv">
+			<input type="text" id="lastA">
+			<button class="button-5" onclick="checkPassword()">Sprawdź</button>
+		</div>
+		<div>
+			<h3 id="BadAnswer">A niech to! To nie to</h3>
+			<h3 id="GoodAnswer">Udało się!</h3>
+		</div>
+		<button class="button-5" id="LastHallButton" onclick="window.location.href='NigdyNieZgadniesz.html'">Naprzód!</button>
+	</div>
+</body>
+</html>
