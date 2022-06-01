@@ -246,3 +246,13 @@ button {
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
 }
+
+.zagadka-rock {
+	color: turquoise;
+	background-color: rgb(155, 91, 14);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 20px;
+}

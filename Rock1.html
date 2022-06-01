@@ -14,6 +14,25 @@
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
+
+		function checkAnswer(){
+			passObject = document.getElementById("ZagadkaRock1");
+			if (passObject.value == "51")
+			{
+				document.getElementById("GoodAnswer").style.display = "block";
+				document.getElementById("BadAnswer").style.display = "none";
+				document.getElementById("NarrateGoodAnswer").style.display = "block";
+				document.getElementById("ForwardButton").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("GoodAnswer").style.display = "none";
+				document.getElementById("BadAnswer").style.display = "block";
+				document.getElementById("NarrateGoodAnswer").style.display = "none";
+				document.getElementById("ForwardButton").style.display = "none";
+			}
+		}
+
 	</script>
 </head>
 <body>
@@ -25,8 +44,38 @@
 			<button class="button-5" onclick="mainHall()">Powrót</button>
 		</div>
 		<h1 id="welcome-p">Jaskinia Skalna</h1>
-		<h3 class="narrate"></h3>
 		<br>
+		<h3 class="narrate">
+			Gdy wchodzisz do portalu zatytułowanego "Jaskinia Skalna" zaczyna ci się kręcić w głowie. Kręcenie wzmaga się z sekundy na sekundę,
+			wszystko co widzisz zaczyna wirować, jakby żyć własnym życiem. W końcu wszystko zlewa się w rozmazany obraz i gdy masz wrażenie, że cały świat przestanie zaraz istnieć,
+			kręcenie ustaje. Powoli dochodzisz do siebie i stwierdzasz, że nie było to najprzyjemniejsze przeżycie. Postanawiasz zatem skupić się na zadaniach przed tobą, aby przypadkiem 
+			nie musieć pokonywać tej podróży ponownie. Jendak gdy jesteś już w stanie się rozejrzeć wokoło, zauważasz, że twoje otoczenie uległo drastycznym zmianom. Znajdujesz się 
+			w ciemnej jaskini, w środku widzisz jedynie ściany wykonane z nieznanego tobie materiału, zaś jedynym źródłem światła są promienie słoneczne dobiegające ze szpar w suficie. 
+			Gdy wyostrzasz wzrok, w przeciwległym kącie tej okrągłej jaskini dostrzegasz pewien niezwykły blask. Nie wiesz do końca skąd to wrażenie, ale czujesz, że to właśnie fragment klucza, 
+			którego szukasz. Już masz rzucić się w bieg w stronę tego blasku, kiedy uświadamiasz sobie, że wydaje się to nieco za proste. A co jeżeli po drodze ustawione są pułapki? Zmusiłyby cię 
+			one zapewne do pokonania dodatkowych przeszkód bądź, co gorsza, może nawet do pokonania podróży przez portal jeszcze raz. Przypominasz sobie zatem jedną ze starych zagadek, którą kiedyś 
+			słyszałaś, licząc, że pomoże ci się ona skupić.
+		</h3>
+		<h3 class="zagadka-rock">
+			Na serwerze Maniaków Gier 4 osoby są DJami, zaś 6 jest Maniakami Szachów. Aż 32 osobi grają w Ligę Legend, 21 w różnego rodzaju FPS-y, natomiast 7 uwielbia klikać w kółka. 
+			Serwer gości 3 znanych Youtuberów, 4 zwycięzców turnieju a także 9 Fakerów ukrytych w spódnicy. Zdarzają się także wyjątkowe osobistości jak jedyny w swoim Pan Kucharz, czy Pan Podrabianiec. 
+			Można również opowiedzieć o sektach działających potajemnie takich jak G2 Army, posiadająca 7 członków, lub Karni Czradną - prawdziwi słudzy cienia w liczbie 4 osób. Do pomocy wykorzystywane 
+			jest również pięć botów, jednak ich nie bierzemy pod uwagę - stanowią jedynie tło całej przygody. Pytanie natomiast jest następujace - ilu członków mieści serwer Maniaków Gier?
+		</h3>
+
+		<h3 class="narrate">No tak, ta zagadka wcale nie jest taka trudna. Odpowiedzią jest </h3>
+		<div id="InputButtonDiv">
+			<input type="text" id="ZagadkaRock1">
+			<button class="button-5" onclick="checkAnswer()">Sprawdź</button>
+		</div>
+		<div>
+			<h3 id="BadAnswer">Hmmm, nieee, coś jednak jest nie tak.</h3>
+			<h3 id="GoodAnswer">No właśnie! O to dokładnie chodziło.</h3>
+		</div>
+		<h3 id="NarrateGoodAnswer" class="narrate" style="display:none">Mając chwilę na zebranie myśli i dokładniejsze przeanalizowanie sytuacji, dochodzisz do wniosku, że nikt tutaj nie chciał cię 
+			nigdy skrzywdzić, więc dlaczego pułapki miałyby być ustawione w tak losowym miejscu? Będąc nieco bardziej pewna siebie decydujesz się podejść do fragmentu klucza.
+		</h3>
+		<button class="button-5" id="ForwardButton" onclick="window.location.href='Rock2.html'">Naprzód!</button>
 	</div>
 </body>
 </html>
