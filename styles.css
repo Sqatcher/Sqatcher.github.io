@@ -8,7 +8,7 @@ img {
 }
 
 .narrate {
-	font-family: fantasy;
+	font-weight: 5000;
 	color:rgb(13, 85, 148);
 	margin-left: 10px;
 	margin-right: 10px;
@@ -54,7 +54,6 @@ h1 {
 }
 
 h3 {
-	font-family: fantasy;
 	margin-left: 15px;
 	margin-right: 15px;
 }
@@ -107,7 +106,6 @@ button {
 
 .doorDiv p {
 	margin-top: 50px;
-	font-family: fantasy;
 	font-size: 20px;
 }
 
