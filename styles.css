@@ -304,3 +304,19 @@ button {
 	padding-right: 10px;
 	font-size: 20px;
 }
+
+#ElemDiv3 {
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+
+#ButtonRock3 {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto auto;
+}
+
+#ButtonRock3 > * {
+	margin-top: 20px;
+	width: 200px;
+}

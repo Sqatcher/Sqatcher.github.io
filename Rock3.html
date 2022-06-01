@@ -15,69 +15,66 @@
 			window.location.href = "The_Main_Hall.html";
 		}
 
-		function checkAnswer(){
-			passObject = document.getElementById("ZagadkaRock2_1");
-			if (passObject.value.toLowerCase() == "zbuduj")
-			{
-				document.getElementById("GoodAnswer").style.display = "block";
-				document.getElementById("BadAnswer").style.display = "none";
-				document.getElementById("Riddle2").style.display = "block";
-				document.getElementById("zagadkaButton1").onclick = "";
-			}
-			else
-			{
-				document.getElementById("GoodAnswer").style.display = "none";
-				document.getElementById("BadAnswer").style.display = "block";
-			}
-		}
 
-		function checkAnswer2(){
-			passObject = document.getElementById("ZagadkaRock2_2");
-			if (passObject.value.toLowerCase() == "wlasny" || passObject.value.toLowerCase() == "własny")
-			{
-				document.getElementById("GoodAnswer2").style.display = "block";
-				document.getElementById("BadAnswer2").style.display = "none";
-				document.getElementById("Riddle3").style.display = "block";
-				document.getElementById("zagadkaButton2").onclick = "";
-			}
-			else
-			{
-				document.getElementById("GoodAnswer2").style.display = "none";
-				document.getElementById("BadAnswer2").style.display = "block";
-			}
-		}
+		var poj8 = 8;
+		var poj3 = 0;
+		var poj5 = 0;
 
-		function checkAnswer3(){
-			passObject = document.getElementById("ZagadkaRock2_3");
-			if (passObject.value.toLowerCase() == "kilof")
+		function swapLiquid(from, to, cap, type) {
+			cap = cap - to;
+			var amount = cap;
+			if (from <= cap)
 			{
-				document.getElementById("GoodAnswer3").style.display = "block";
-				document.getElementById("BadAnswer3").style.display = "none";
-				document.getElementById("NarrateGoodAnswer").style.display = "block";
+				amount = from;
+			}
+			
+			var pojemnik8 = document.getElementById("pojemnik8");
+			var pojemnik3 = document.getElementById("pojemnik3");
+			var pojemnik5 = document.getElementById("pojemnik5");
+
+			if (type == 1) {
+				poj8 -= amount;
+				poj3 += amount;
+				pojemnik8.src = "PojemnikiLitr/Pojemnik8_" + poj8 + ".png";
+				pojemnik3.src = "PojemnikiLitr/Pojemnik3_" + poj3 + ".png";
+			}
+			if (type == 2) {
+				poj3 -= amount;
+				poj8 += amount;
+				pojemnik3.src = "PojemnikiLitr/Pojemnik3_" + poj3 + ".png";
+				pojemnik8.src = "PojemnikiLitr/Pojemnik8_" + poj8 + ".png";
+			}
+			if (type == 3) {
+				poj5 -= amount;
+				poj3 += amount;
+				pojemnik5.src = "PojemnikiLitr/Pojemnik5_" + poj5 + ".png";
+				pojemnik3.src = "PojemnikiLitr/Pojemnik3_" + poj3 + ".png";
+			}
+			if (type == 4) {
+				poj8 -= amount;
+				poj5 += amount;
+				pojemnik8.src = "PojemnikiLitr/Pojemnik8_" + poj8 + ".png";
+				pojemnik5.src = "PojemnikiLitr/Pojemnik5_" + poj5 + ".png";
+			}
+			if (type == 5) {
+				poj3 -= amount;
+				poj5 += amount;
+				pojemnik5.src = "PojemnikiLitr/Pojemnik5_" + poj5 + ".png";
+				pojemnik3.src = "PojemnikiLitr/Pojemnik3_" + poj3 + ".png";
+			}
+			if (type == 6) {
+				poj5 -= amount;
+				poj8 += amount;
+				pojemnik8.src = "PojemnikiLitr/Pojemnik8_" + poj8 + ".png";
+				pojemnik5.src = "PojemnikiLitr/Pojemnik5_" + poj5 + ".png";
+			}
+
+			if (poj8 == 4 || poj3 == 4 || poj5 == 4)
+			{
+				document.getElementById("Sukces").style.display = "block";
+				document.getElementById("SukcesNarrate").style.display = "block";
 				document.getElementById("ForwardButton").style.display = "block";
-				document.getElementById("zagadkaButton3").onclick = "";
 			}
-			else
-			{
-				document.getElementById("GoodAnswer2").style.display = "none";
-				document.getElementById("BadAnswer2").style.display = "block";
-			}
-		}
-
-		function oneClick() {
-			document.getElementById("B1").onclick = "";
-			document.getElementById("B1").style.marginLeft = "75px";
-			document.getElementById("B2").style.display = "none";
-			document.getElementById("OneTap").style.display = "block";
-			document.getElementById("Tap").style.display = "block";
-		}
-
-		function twoClick() {
-			document.getElementById("B2").onclick = "";
-			document.getElementById("B2").style.marginLeft = "375px";
-			document.getElementById("B1").style.display = "none";
-			document.getElementById("TwoTap").style.display = "block";
-			document.getElementById("Tap").style.display = "block";
 		}
 
 	</script>
@@ -93,83 +90,38 @@
 		<h1 id="welcome-p">Jaskinia Skalna</h1>
 		<br>
 		<h3 class="narrate">
-			Przechodzisz na drugą stronę jaskini i rzeczywiście po drodze nic się nie stało. Zadowolona z własnej analizy, podchodzisz do miejsca, gdzie znajduje się fragment 
-			klucza. Niestety, nie jest on tak łatwo dostępny jak miałaś nadzieję. Ta część jaskini jest znacznie gorzej oświetlona, przez co nie od razu dostrzegasz wszystkie szczegóły. 
-			Sam fragment zaś leży w dziurze wyrytej w ścianie, jednak oddziela go od ciebie pewnego rodzaju pole siłowe, 
-			które zdaje się zatrzymywać wszystko na swojej drodze z wyjątkiem światła. Musi być jednak jakiś sposób, żeby go zdobyć, więc zaczynasz przyglądać się dokładniej ścianie. 
-			Spostrzegasz, że w okolicy miejsca, w którym przechowywany jest klucz ściana zmienia nieco swój kolor. Pukasz w ścianę, żeby upewnić się w swoich spotrzeżeniach i tak, masz rację! 
-			Ten kolor, kształt i strukturę rozpoznasz wszędzie. To bruk! Z brukiem radziłaś sobie nieraz, co dodaje ci sił do dalszych działań. Cały czas stojąc w półmroku, podejmujesz kolejne działania.
+			Rozwiązawszy zagadkę zaczynasz wszystko łączyć w całość. Skoro między tobą a fragmentem klucza stoi jedynie ściana bruku, a antyczne hieroglify sugerują, żeby zbudować własny kilof... 
+			Jedyne, czego teraz potrzebujesz, to 3 kamyki i 2 patyki! Tyle wystarczy, żeby zrobić kilof, prawda? Spędzasz kilka chwil na przeszukiwaniu podłogi jaskini, szukając potrzebnych ci 
+			materiałów. Gdy zebrałaś wszystkie niezbędne części, zasnatawiasz się co teraz. Przydałby się stół rzemieślniczy, zatem wyruszasz w jego poszukiwaniu do jeszcze ciemniejszej części jaskini. 
+			Zauważasz tam coś, co rzeczywiście przypomina stół, jednak to, co się na nim znajduje, wprawia cię w małe zaskoczenie. Nie ma tam wcale narzędzi, a zamiast tego trzy pojemniki, każdy innego 
+			rozmiaru. Tylko jeden z nich, ten, mający 8 litrów pojemności, jest wypełniony jakimś dziwnym płynem po brzegi. Pozostałe dwa, o pojemności odpowiednio 3 i 5 litrów, stoją puste. Na stole 
+			jest również notka mówiąca o tym ile płynu potrzeba do jakiej wielkości przedmiotów. Wśród wymienionych możliwości jest również coś co wygląda znajomo: obrazek 3 kamyków i 2 patyków, zaś 
+			obok dopisek - 4l. No dobra, skoro wszystko prowadzi tutaj, to nieważne co się stanie, chyba trzeba tego czegoś spróbować. Tylko jak wydobyć z tych pojemników dokładnie 4l? Wolisz nie 
+			nadwyrężać cierplliowości stołu próbując różnych innych kombinacji. Skoro pojemniki mają dokładnie 8, 3 i 5 litrów, to chyba należy poprzelewać płyn z jednego do innych, żeby jakoś osiągnąć 
+			upragnione 4l. Tylko jak to zrobić?
 		</h3>
-		<div id="Button2Div">
-			<button id="B1" class="button-5" onclick="oneClick()" style="width:200px; height: 100px;">Przeszukujesz dokładniej okolicę</button>
-			<button id="B2" class="button-5" onclick="twoClick()" style="width:200px; height: 100px;">Zaczynasz nawalać łapką w bruk</button>
+		<div id="ElemDiv3">
+			<img id="pojemnik8" src="PojemnikiLitr/Pojemnik8_8.png" alt="pojemnik8">
+			<img id="pojemnik3" src="PojemnikiLitr/Pojemnik3_0.png" alt="pojemnik3">
+			<img id="pojemnik5" src="PojemnikiLitr/Pojemnik5_0.png" alt="pojemnik5">
 		</div>
-		<h3 id="OneTap" class="narrate" style="display: none;">
-			No raczej. Po co miałabyś nawalać łapką w skałę? Czy od tego miałaby pęknąć?? Phi. Szybko odrzucasz słabą decyzję i przechodzisz do oględzin pokoju. Początkowo omiatasz wzrokiem podłogę, 
-			jednak nie zauważasz na niej nic wartościowego: trochę ziemi, kamyki, standardowy wystrój podłogowy jaskini. Jednak gdy zaczynasz przyglądać się ścianom i przechodzić wzdłuż nich, 
-			powoli wydobywasz kształty znajdujące się na nich. Są to dziwnego rodzaju symbole, zaś niektóre z nich są już podpisane. Wnioskujesz, że musi być to pewien zapomniany już język, 
-			jednak dlaczego część z symboli jest już przetłumaczona? Czy ktoś już był tu wcześniej? Ponieważ jednak nie wszystkie symbole są przetłumaczone, chyba nie udało mu się do końca 
-			rozszyfrować mądrości w nich zawartych. Spoglądasz na nie, próbując znaleźć pewien wzór i odczytać zostawioną tu wiadomość.
+		<br>
+		<div id="ButtonRock3">
+			<button class="button-5" onclick="swapLiquid(poj8, poj3, 3, 1)">Z 8l do 3l -></button>
+			<button class="button-5" onclick="swapLiquid(poj3, poj8, 8, 2)"><- Z 3l do 8l</button>
+			<button class="button-5" onclick="swapLiquid(poj5, poj3, 3, 3)"><- Z 5l do 3l</button>
+			<button class="button-5" onclick="swapLiquid(poj8, poj5, 5, 4)">Z 8l do 5l ---></button>
+			<button class="button-5" onclick="swapLiquid(poj3, poj5, 5, 5)">Z 3l do 5l -></button>
+			<button class="button-5" onclick="swapLiquid(poj5, poj8, 8, 6)"><--- Z 5l do 8l</button>
+		</div>
+		<h3 id="Sukces" style="color: rgb(143, 219, 29); display: none">Mam to!</h3>
+		<h3 id="SukcesNarrate" class="narrate" style="display:none;">
+			Udało ci się odmierzyć dokładne 4 litry! Niektóre z najtęższych umysłów miały problem z rozwiązaniem tego kłopotu, ale ty sama nawet przez moment nie wątpiłaś we własny sukces. 
+			Wylewasz idealnie odmierzone 4 litry substancji na swoje kamyki i patyki. Dziwny płyn zdaje się nabierać dziwinie materialną postać. Niby-sznurki zaczynają się wyłań z płynu, 
+			łącząc ze sobą poszczególne materiały, jednak nim jesteś w stanie dojrzeć coś więcej, ciemnozielona chmura dymu przysłania ci całą scenę. Gdy po chwili opada, widzisz na stole 
+			gotowy kilof. Niech i tak będzie. Zadowolona z siebie, ruszasz spowrotem do fragmentu klucza i ściany bruku.
 		</h3>
-		<h3 id="TwoTap" class="narrate" style="display: none;">
-			Czujesz, że takie jest twoje powołanie, do tego właśnie się narodziłaś. Przygotowujesz swoją pięść, zbierasz w sobie energię, bierzesz głęboki wdech i... zaczynasz nawalać skałę. 
-			Skała zdaje sobie nic z tego nie robić, jednak ciebie to nie przeraża. Żywa determinacja płynie w twoim organiźmnie niczym krew, twój wzrok przestaje dotrzegać cokolwiek poza skałą. 
-			Skała to twój wróg. Nie spoczniesz, póki ona nie padnie. Twoja pięść niczym wściekły wąż sama wyszukuje słabe punkty przeciwnika i stara się przeniknąć jego obronę. Pada cios za ciosem, 
-			nieustraszona pięść naprzeciw niewzruszonej skały. W końcu efekty zaczynają być widoczne - skała zaczyna się kruszyć! Dokłada to tylko oliwy do twojego wewnętrznego ognia, atakujesz z jeszcze 
-			większą natarczywością. Skała, ewidentnie na przegranej pozycji, decyduje się jednak na desperacki ruch. Ukrusza jeden ze swoich fragmentów w taki sposób, aby uderzająca tam twoja pięść 
-			ześlizgnęła się na bok. Zanim jesteś w stanie dostrzec manewr swojego przeciwnika, twoja ręka już leci na bok, a razem z nią i ty sama. Przewróciwszy się, leżysz na ziemi, lekko zmęczona, 
-			jednak wciąż chętna do walki. Gdy tak leżysz, dostrzegasz jednak dziwne kształty na ścianach. Symbole, niektóre z nich podpisane, które zdają się tworzyć dziwne wyrazy. Stwierdzasz, że 
-			może dasz skale chwilę odsapnąć, zaś sama, lekko zaciekawiona, decydujesz się rozwikłać ten archaiczny szyfr.
-		</h3>
-		<div id="Tap" style="display: none;">
-			<h3 class="narrate">
-				Pierwsza przetłumaczona część jak i ta zakodowana wygląda następująco:
-			</h3>
-			<img src="RockImg/LeagueChampions1.png" alt="zagadkaRock1">
-			<h3 class="narrate">
-				Po chwili rozpoznajesz już zakodowaną część. Jest nią:
-			</h3>
-			<div id="InputButtonDiv">
-				<input type="text" id="ZagadkaRock2_1">
-				<button id="zagadkaButton1" class="button-5" onclick="checkAnswer()">Sprawdź</button>
-			</div>
-		</div>
-		<div>
-			<h3 id="BadAnswer">Dręczy cię jakieś dziwne przeczucie. To chyba przeczucie pomyłki.</h3>
-			<h3 id="GoodAnswer">O! Co za miłe uczucie. To uczucie posiadania racji.</h3>
-		</div>
-		<div id="Riddle2" style="display: none;">
-			<h3 class="narrate">
-				Skoro pierwsza część tak dobrze ci poszła, czemu by nie zająć się kolejną?
-			</h3>
-			<img src="RockImg/LeagueChampions2.png" alt="zagadkaRock2">
-			<div id="InputButtonDiv2">
-				<input type="text" id="ZagadkaRock2_2">
-				<button id="zagadkaButton2" class="button-5" onclick="checkAnswer2()">Sprawdź</button>
-			</div>
-			<div>
-				<h3 id="BadAnswer2">Dręczy cię jakieś dziwne przeczucie. To chyba przeczucie pomyłki.</h3>
-				<h3 id="GoodAnswer2">O! Co za miłe uczucie. To uczucie posiadania racji.</h3>
-			</div>
-		</div>
-		<div id="Riddle3" style="display:none;">
-			<h3 class="narrate">
-				Dobra robota ja! To już chyba ostatni fragment.
-			</h3>
-			<img src="RockImg/LeagueChampions3.png" alt="zagadkaRock3">
-			<div id="InputButtonDiv3">
-				<input type="text" id="ZagadkaRock2_3">
-				<button id="zagadkaButton3" class="button-5" onclick="checkAnswer3()">Sprawdź</button>
-			</div>
-			<div>
-				<h3 id="BadAnswer3">Dręczy cię jakieś dziwne przeczucie. To chyba przeczucie pomyłki.</h3>
-				<h3 id="GoodAnswer3">O! Co za miłe uczucie. To uczucie posiadania racji.</h3>
-			</div>
-			<h3 id="NarrateGoodAnswer" class="narrate" style="display:none;">
-				Super! Po odczytaniu wszystkich wiadomości, mądrość ukryta w symbolach brzmi następująco: "Zbuduj własny kilof". Nie brzmi to zbyt mądrze, ale z pewnością się przyda.
-			</h3>
-			<button class="button-5" id="ForwardButton" onclick="window.location.href='Rock3.html'" style="display: none; width:250px;">No mam nadzieję...</button>
-		</div>
+		<button id="ForwardButton" class="button-5" style="display: none; width: 200px;" onclick="window.location.href='RockFinal.html'">Zabieramy się do kopania!</button>
 	</div>
 </body>
 </html>
