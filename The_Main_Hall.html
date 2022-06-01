@@ -14,6 +14,79 @@
 		}
 	</style>
 	<script>
+		var fireKey = sessionStorage.getItem("FireKey");
+		var woodKey = sessionStorage.getItem("WoodKey");
+		var waterKey = sessionStorage.getItem("WaterKey");
+		var rockKey = sessionStorage.getItem("RockKey");
+
+		function showFireFrag() {
+			if (fireKey == 1)
+			{
+				var rockDiv = document.getElementById("FireFragDiv");
+				if (fireDiv.style.display == "none")
+				{
+					fireDiv.style.display = "grid";
+					document.getElementById("FireFragPlaceHolder").style.display = "none";
+				}
+				else
+				{
+					fireDiv.style.display = "none";
+					document.getElementById("FireFragPlaceHolder").style.display = "block";
+				}
+			}
+		}
+
+		function showWoodFrag() {
+			if (woodKey == 1)
+			{
+				var woodDiv = document.getElementById("WoodFragDiv");
+				if (woodDiv.style.display == "none")
+				{
+					woodDiv.style.display = "grid";
+					document.getElementById("WoodFragPlaceHolder").style.display = "none";
+				}
+				else
+				{
+					woodDiv.style.display = "none";
+					document.getElementById("WoodFragPlaceHolder").style.display = "block";
+				}
+			}
+		}
+
+		function showWaterFrag() {
+			if (waterKey == 1)
+			{
+				var waterDiv = document.getElementById("WaterFragDiv");
+				if (waterDiv.style.display == "none")
+				{
+					waterDiv.style.display = "grid";
+					document.getElementById("WaterFragPlaceHolder").style.display = "none";
+				}
+				else
+				{
+					waterDiv.style.display = "none";
+					document.getElementById("WaterFragPlaceHolder").style.display = "block";
+				}
+			}
+		}
+
+		function showRockFrag() {
+			if (rockKey == 1)
+			{
+				var rockDiv = document.getElementById("RockFragDiv");
+				if (rockDiv.style.display == "none")
+				{
+					rockDiv.style.display = "grid";
+					document.getElementById("RockFragPlaceHolder").style.display = "none";
+				}
+				else
+				{
+					rockDiv.style.display = "none";
+					document.getElementById("RockFragPlaceHolder").style.display = "block";
+				}
+			}
+		}
+
 		function checkPassword(){
 			passObject = document.getElementById("maslo");
 			if (passObject.value == "Maslo")
@@ -67,6 +140,49 @@
 			<div class="doorDiv" id="BrownDoorDiv" onclick="skala()">
 				<p>Jaskinia Skalna</p>
 			</div>
+		</div>
+		<br>
+		<div id="KeyLookUpDiv">
+			<button class="button-5" onclick="showFireFrag()">Ognisty fragment klucza</button>
+			<div id="FireFragDiv" class="FragKeyLookUpDiv" style="display: none">
+				<h3><i>Numer klucza: </i></h3>
+				<h3>1</h3>
+				<h3><i>Treść klucza: </i></h3>
+				<h3>treść</h3>
+				<h3><i>Wskazówka: </i></h3>
+				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
+			</div>
+			<div id="FireFragPlaceHolder" style="width:400px; height: 330px"></div>
+			<button class="button-5" onclick="showWoodFrag()">Leśny fragment klucza</button>
+			<div id="WoodFragDiv" class="FragKeyLookUpDiv" style="display: none">
+				<h3><i>Numer klucza: </i></h3>
+				<h3>1</h3>
+				<h3><i>Treść klucza: </i></h3>
+				<h3>treść</h3>
+				<h3><i>Wskazówka: </i></h3>
+				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
+			</div>
+			<div id="WoodFragPlaceHolder" style="width:400px; height: 330px"></div>
+			<button class="button-5" onclick="showWaterFrag()">Wodny fragment klucza</button>
+			<div id="WaterFragDiv" class="FragKeyLookUpDiv" style="display: none">
+				<h3><i>Numer klucza: </i></h3>
+				<h3>1</h3>
+				<h3><i>Treść klucza: </i></h3>
+				<h3>treść</h3>
+				<h3><i>Wskazówka: </i></h3>
+				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
+			</div>
+			<div id="WaterFragPlaceHolder" style="width:400px; height: 330px"></div>
+			<button class="button-5" onclick="showRockFrag()">Skalny fragment klucza</button>
+			<div id="RockFragDiv" class="FragKeyLookUpDiv" style="display: none">
+				<h3><i>Numer klucza: </i></h3>
+				<h3>1</h3>
+				<h3><i>Treść klucza: </i></h3>
+				<h3>treść</h3>
+				<h3><i>Wskazówka: </i></h3>
+				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
+			</div>
+			<div id="RockFragPlaceHolder" style="width:400px; height: 330px"></div>
 		</div>
 		<h1>Czy masz już klucz?</h1>
 		<div id="InputButtonDiv">

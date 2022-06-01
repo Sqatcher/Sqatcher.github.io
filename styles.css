@@ -346,3 +346,34 @@ button {
 #FragKeyDiv :nth-child(2n-1){
 	text-align: left;
 }
+
+#KeyLookUpDiv {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+#KeyLookUpDiv > button{
+	width: 200px;
+}
+
+.FragKeyLookUpDiv {	
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 400px;
+	height: 250px;
+	background-color: darkmagenta;
+	color: whitesmoke;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: none;
+	grid-template-columns: auto auto;
+}
+
+.FragKeyLookUpDiv :nth-child(2n){
+	text-align: center;
+}
+
+.FragKeyLookUpDiv :nth-child(2n-1){
+	text-align: left;
+}

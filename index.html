@@ -23,6 +23,10 @@
 		var intervalColourID = 0;
 
 		function changeColour() {
+			sessionStorage.setItem("FireKey", 0);
+			sessionStorage.setItem("WoodKey", 0);
+			sessionStorage.setItem("WaterKey", 0);
+			sessionStorage.setItem("RockKey", 0);
 			intervalColourID = setInterval(colourChange, 50);
 		}
 
