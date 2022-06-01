@@ -320,3 +320,29 @@ button {
 	margin-top: 20px;
 	width: 200px;
 }
+
+#TakeKeyDiv {
+	margin-left: auto;
+	margin-right: auto;
+	display: none;
+	text-align: center;
+}
+
+#FragKeyDiv {
+	margin: auto;
+	width: 50%;
+	background-color: darkmagenta;
+	color: whitesmoke;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+#FragKeyDiv :nth-child(2n){
+	text-align: center;
+}
+
+#FragKeyDiv :nth-child(2n-1){
+	text-align: left;
+}

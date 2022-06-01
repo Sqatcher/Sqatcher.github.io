@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<style>
+		body {
+			background-color: rgb(72, 13, 13);
+		}
+	</style>
+	<script>
+		function mainHall() {
+			window.location.href = "The_Main_Hall.html";
+		}
+		
+		function takeKey() {
+			document.getElementById("TakeKeyDiv").style.display = "block";
+			document.getElementById("ForwardButton").style.display = "block";
+		}
+
+	</script>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<div id="ReturnButtonDiv">
+			<button class="button-5" onclick="mainHall()">Powrót</button>
+		</div>
+		<h1 id="welcome-p">Jaskinia Skalna</h1>
+		<br>
+		<h3 class="narrate">
+			Po tylu zmaganiach, w końcu masz wszystko czego potrzebujesz. Podchodzisz do ściany z fragmentem klucza i rozpoczynasz kopanie bruku kilofem. Idzie znacznie szybciej niż gdybyś zupełnie 
+			hipotetycznie miała używać do tego ręki. Już po kilku chwilach ze ściany broniącej ci przejścia do celu zostaje nic tylko pył i kamyki. W końcu fragment klucza stoi przed tobą otworem.
+		</h3>
+
+		<img src="RockImg/KeyFragment.png" alt="fragmentKlucza">
+		<button class="button-5" onclick="takeKey()">Biorę to</button>
+
+		<div id="TakeKeyDiv">
+			<h3 class="narrate">
+				Wyciągasz rękę po klucz, lecz gdy już masz go dotknąć, on znika. Przytłacza cię jednak ogrom nowonabytej wiedzy.
+			</h3>
+			<div id="FragKeyDiv">
+				<h3>
+					<i>Numer klucza: </i>
+				</h3>
+				<h3>1</h3>
+				<h3>
+					<i>Treść klucza: </i>
+				</h3>
+				<h3>treść</h3>
+				<h3>
+					<i>Wskazówka: </i>
+				</h3>
+				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
+			</div>
+		</div>
+		
+		<button id="ForwardButton" class="button-5" style="display: none; width: 250px;" onclick="mainHall()">Wracamy do domu</button>
+	</div>
+</body>
+</html>
