@@ -14,6 +14,16 @@ img {
 	margin-right: 10px;
 }
 
+#EntryImg {
+	margin-top: 130px;
+	height: 25%;
+	width: 25%;
+	border: 30px solid;
+	border-color: rgb(173, 216, 230);
+	border-radius: 100%;
+	cursor: pointer;
+}
+
 #Logo {
 	margin: auto;
 	width: 160px;

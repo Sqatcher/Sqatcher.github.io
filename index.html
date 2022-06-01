@@ -12,6 +12,85 @@
 		}
 	</style>
 	<script>
+		window.onload = changeColour;
+		var redC = 0;
+		var signRed = 1;
+		var greenC = 0;
+		var signGreen = 1;
+		var blueC = 0;
+		var signBlue = 1;
+		var intervalID = 0;
+		var intervalColourID = 0;
+
+		function changeColour() {
+			intervalColourID = setInterval(colourChange, 50);
+		}
+
+		function colourChange() {			
+			var entryImg = document.getElementById("EntryImg");
+			entryImg.style.borderColor = "rgb(" + Math.abs(redC) + "," + Math.abs(greenC) + "," + Math.abs(blueC) + ")";
+			redC = (redC + 1*signRed);
+			if (redC != redC % 256)
+			{
+				signRed *= -1;
+				redC += 1*signRed;
+			}
+			greenC = (greenC + 3*signGreen);
+			if (greenC != greenC % 256)
+			{
+				signGreen *= -1;
+				greenC += 3*signGreen;
+			}
+			blueC = (blueC + 2*signBlue);
+			if (blueC != blueC % 256)
+			{
+				
+				signBlue *= -1;
+				blueC += 2*signBlue;
+			}
+			console.log(signGreen);
+		}
+
+		function changeScene() {
+			intervalID = setInterval(fadeOutEntryImg, 50);
+		}
+
+		function fadeOutEntryImg() {
+			var entry = document.getElementById("EntryImg");
+			var opacity = Number(window.getComputedStyle(entry).getPropertyValue("opacity"));
+			if (opacity > 0) {
+                opacity = opacity - 0.1;
+                entry.style.opacity = opacity;
+            }
+			else {
+                clearInterval(intervalID);
+				clearInterval(intervalColourID);
+				entry.parentElement.style.display = "none";
+				fadeInSceneInterval();
+            }
+		}
+
+		function fadeInSceneInterval() {
+			document.getElementById("MainDiv").style.display = "block";
+			document.getElementById("LogoDiv").style.display = "block";
+			intervalID = setInterval(fadeInScene, 50);
+		}
+
+		function fadeInScene() {
+			var mDiv = document.getElementById("MainDiv");
+			var logoDiv = document.getElementById("LogoDiv");
+			var opacity = Number(window.getComputedStyle(mDiv).getPropertyValue("opacity"));
+			console.log(opacity);
+			if (opacity < 1) {
+                opacity = opacity + 0.1;
+                mDiv.style.opacity = opacity;
+				logoDiv.style.opacity = opacity;
+            }
+			else {
+                clearInterval(intervalID);
+            }
+		}
+
 		function noClick() {
 			main = document.getElementById("MainDiv");
 			logo = document.getElementById("Logo");
@@ -35,9 +114,12 @@
 </head>
 <body>
 	<div class="middle-div">
+		<img id="EntryImg" src="ManiacyGier.jpg" alt="ajajaj" onclick="changeScene()">
+	</div>
+	<div id="LogoDiv" class="middle-div" style="opacity: 0; display: none;">
 		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
 	</div>
-	<div class="middle-div" id="MainDiv">
+	<div class="middle-div" id="MainDiv" style="opacity: 0; display: none;">
 		<h3 class="narrate">Budzisz się nie wiadomo w jakim miejscu, nie wiadomo w jakim czasie. Nie pamiętasz nic oprócz tego, co pamiętasz.
 			 Wiesz, że jest ranek. Przed sobą widzisz wrota wykonane jakby ze srebra z kolorowymi ornamentami, zaś wokoło nic - goła, szara pustynia.
 			 Zaczynasz się zastanawiać kto lub co mogło cię tu sprowadzić, lecz wtem słyszysz głos</h3>
@@ -59,7 +141,7 @@
 			<h3 id="Yes-response">TUTURUUU! Super! Zatem lecimy dalej</h3>
 			<h3 class="narrate">Zdaje się, że o taką odpowiedź chodziło. Drzwi budowli powoli się otwierają, zaś w międzyczasie zaczyna się ściemniać.
 				Z oddali słyszysz niepokojące mruczenia i bliżej nieokreślone dźwięki. "Czy to pjeski?" przychodzi ci na myśl, jednak po chwili powraca do życia zdrowy rozsądek.
-				Przypominasz sobie, że to środek pustyni a ty nie masz nic do picia, dlatego decydujesz się znaleźć schronienie w budowli z nadzieją na znalezienie czegoś uzytecznego w środku.</h3>
+				Przypominasz sobie, że to środek pustyni a ty nie masz nic do picia, dlatego decydujesz się znaleźć schronienie w budowli z nadzieją na znalezienie czegoś użytecznego w środku.</h3>
 			<div>
 				<button class="button-5" onclick="window.location.href='The_Main_Hall_FirstTouch.html'">OK !</button>
 			</div>
