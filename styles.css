@@ -152,6 +152,24 @@ button {
 	display: none;
 	color:rgb(143, 219, 29);
 }
+#BadAnswer2 {
+	display: none;
+	color: red;
+}
+
+#GoodAnswer2 {
+	display: none;
+	color:rgb(143, 219, 29);
+}
+#BadAnswer3 {
+	display: none;
+	color: red;
+}
+
+#GoodAnswer3 {
+	display: none;
+	color:rgb(143, 219, 29);
+}
 
 #ForwardButton {
 	display: none;
@@ -164,8 +182,26 @@ button {
 	width: 100%;
 	margin-top: 20px;
 }
+#InputButtonDiv2 {
+	display: grid;
+	grid-template-columns: auto auto;
+	width: 100%;
+	margin-top: 20px;
+}
+#InputButtonDiv3 {
+	display: grid;
+	grid-template-columns: auto auto;
+	width: 100%;
+	margin-top: 20px;
+}
 
 #InputButtonDiv > * {
+	margin: auto;
+}
+#InputButtonDiv2 > * {
+	margin: auto;
+}
+#InputButtonDiv3 > * {
 	margin: auto;
 }
 
@@ -174,6 +210,20 @@ button {
 }
 
 #InputButtonDiv > button {
+	margin-left: 5px;
+}
+#InputButtonDiv2 > input {
+	margin-right: 5px;
+}
+
+#InputButtonDiv2 > button {
+	margin-left: 5px;
+}
+#InputButtonDiv3 > input {
+	margin-right: 5px;
+}
+
+#InputButtonDiv3 > button {
 	margin-left: 5px;
 }
 

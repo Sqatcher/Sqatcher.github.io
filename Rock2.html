@@ -16,21 +16,68 @@
 		}
 
 		function checkAnswer(){
-			passObject = document.getElementById("ZagadkaRock1");
-			if (passObject.value == "51")
+			passObject = document.getElementById("ZagadkaRock2_1");
+			if (passObject.value.toLowerCase() == "zbuduj")
 			{
 				document.getElementById("GoodAnswer").style.display = "block";
 				document.getElementById("BadAnswer").style.display = "none";
-				document.getElementById("NarrateGoodAnswer").style.display = "block";
-				document.getElementById("ForwardButton").style.display = "block";
+				document.getElementById("Riddle2").style.display = "block";
+				document.getElementById("zagadkaButton1").onclick = "";
 			}
 			else
 			{
 				document.getElementById("GoodAnswer").style.display = "none";
 				document.getElementById("BadAnswer").style.display = "block";
-				document.getElementById("NarrateGoodAnswer").style.display = "none";
-				document.getElementById("ForwardButton").style.display = "none";
 			}
+		}
+
+		function checkAnswer2(){
+			passObject = document.getElementById("ZagadkaRock2_2");
+			if (passObject.value.toLowerCase() == "wlasny" || passObject.value.toLowerCase() == "własny")
+			{
+				document.getElementById("GoodAnswer2").style.display = "block";
+				document.getElementById("BadAnswer2").style.display = "none";
+				document.getElementById("Riddle3").style.display = "block";
+				document.getElementById("zagadkaButton2").onclick = "";
+			}
+			else
+			{
+				document.getElementById("GoodAnswer2").style.display = "none";
+				document.getElementById("BadAnswer2").style.display = "block";
+			}
+		}
+
+		function checkAnswer3(){
+			passObject = document.getElementById("ZagadkaRock2_3");
+			if (passObject.value.toLowerCase() == "kilof")
+			{
+				document.getElementById("GoodAnswer3").style.display = "block";
+				document.getElementById("BadAnswer3").style.display = "none";
+				document.getElementById("NarrateGoodAnswer").style.display = "block";
+				document.getElementById("ForwardButton").style.display = "block";
+				document.getElementById("zagadkaButton3").onclick = "";
+			}
+			else
+			{
+				document.getElementById("GoodAnswer2").style.display = "none";
+				document.getElementById("BadAnswer2").style.display = "block";
+			}
+		}
+
+		function oneClick() {
+			document.getElementById("B1").onclick = "";
+			document.getElementById("B1").style.marginLeft = "75px";
+			document.getElementById("B2").style.display = "none";
+			document.getElementById("OneTap").style.display = "block";
+			document.getElementById("Tap").style.display = "block";
+		}
+
+		function twoClick() {
+			document.getElementById("B2").onclick = "";
+			document.getElementById("B2").style.marginLeft = "375px";
+			document.getElementById("B1").style.display = "none";
+			document.getElementById("TwoTap").style.display = "block";
+			document.getElementById("Tap").style.display = "block";
 		}
 
 	</script>
@@ -46,8 +93,83 @@
 		<h1 id="welcome-p">Jaskinia Skalna</h1>
 		<br>
 		<h3 class="narrate">
-			
+			Przechodzisz na drugą stronę jaskini i rzeczywiście po drodze nic się nie stało. Zadowolona z własnej analizy, podchodzisz do miejsca, gdzie znajduje się fragment 
+			klucza. Niestety, nie jest on tak łatwo dostępny jak miałaś nadzieję. Ta część jaskini jest znacznie gorzej oświetlona, przez co nie od razu dostrzegasz wszystkie szczegóły. 
+			Sam fragment zaś leży w dziurze wyrytej w ścianie, jednak oddziela go od ciebie pewnego rodzaju pole siłowe, 
+			które zdaje się zatrzymywać wszystko na swojej drodze z wyjątkiem światła. Musi być jednak jakiś sposób, żeby go zdobyć, więc zaczynasz przyglądać się dokładniej ścianie. 
+			Spostrzegasz, że w okolicy miejsca, w którym przechowywany jest klucz ściania zmienia nieco swój kolor. Pukasz w ścianę, żeby upewnić się w swoich spotrzeżeniach i tak, masz rację! 
+			Ten kolor, kształt i strukturę rozpoznasz wszędzie. To bruk! Z brukiem radziłaś sobie nieraz, co dodaje ci sił do dalszych działań. Cały czas stojąc w półmroku, podejmujesz kolejne działania.
 		</h3>
+		<div id="Button2Div">
+			<button id="B1" class="button-5" onclick="oneClick()" style="width:200px; height: 100px;">Przeszukujesz dokładniej okolicę</button>
+			<button id="B2" class="button-5" onclick="twoClick()" style="width:200px; height: 100px;">Zaczynasz nawalać łapką w bruk</button>
+		</div>
+		<h3 id="OneTap" class="narrate" style="display: none;">
+			No raczej. Po co miałabyś nawalać łapką w skałę? Czy od tego miałaby pęknąć?? Phi. Szybko odrzucasz słabe decyzję i przechodzisz do oględzin pokoju. Początkowo omiatasz wzrokiem podłogę, 
+			jednak nie zauważasz na niej nic wartościowego: trochę ziemi, kamyki, standardowy wystrój podłogowy jaskini. Jednak gdy zaczynasz przyglądać się ścianom i przechodzić wzdłuż nich, 
+			powoli wydobywasz kształty znajdujące się na nich. Są to dziwnego rodzaju symbole, zaś niektóre z nich są już podpisane. Wnioskujesz, że musi być to pewien zapomniany już język, 
+			jednak dlaczego część z symboli jest już przetłumaczona? Czy ktoś już był tu wcześniej? Ponieważ jednak nie wszystkie symbole są przetłumaczone, chyba nie udało mu się do końca 
+			rozszyfrować mądrości w nich zawartych. Spoglądasz na nie, próbując znaleźć pewien wzór i odczytać zostawioną tu wiadomość.
+		</h3>
+		<h3 id="TwoTap" class="narrate" style="display: none;">
+			Czujesz, że takie jest twoje powołanie, do tego właśnie się narodziłaś. Przygotowujesz swoją pięść, zbierasz w sobie energię, bierzesz głęboki wdech i... zaczynasz nawalać skałę. 
+			Skała zdaje sobie nic z tego nie robić, jednak ciebie to nie przeraża. Żywa determinacja płynie w twoim organiźmnie niczym krew, twój wzrok przestaje dotrzegać cokolwiek poza skałą. 
+			Skała to twój wróg. Nie spoczniesz, póki ona nie padnie. Twoja pięść niczym wściekły wąż sama wyszukuje słabe punkty przeciwnika i stara się przeniknąć jego obronę. Pada cios za ciosem, 
+			nieustraszona pięść na przeciw niewzruszonej skały. W końcu zaczyna być widać efekty - skała zaczyna się kruszyć! Dokłada to tylko oliwy do twojego wewnętrznego ognia, atakujesz z jeszcze 
+			większą natarczywością. Skała, ewidentnie na przegranej pozycji, decyduje się jednak na desperacki ruch. Ukrusza jeden ze swoich fragmentów w taki sposób, aby uderzająca tam twoja pięść 
+			ześlizgnęła się na bok. Zanim jesteś w stanie dostrzec manewr swojego przeciwnika, twoja ręka już leci na bok, a razem z nią i ty sama. Przewróciwszy się, leżysz na ziemi, lekko zmęczona, 
+			jednak wciąż chętna do walki. Gdy tak leżysz, dostrzegasz jednak dziwne kształty na ścianach. Symbole, niektóre z nich podpisane, które zdają się tworzyć dziwne wyrazy. Stwierdzasz, że 
+			może dasz skale chwilę odsapnąć, zaś sama, lekko zaciekawiona, decydujesz się rozwikłać ten archaiczny szyfr.
+		</h3>
+		<div id="Tap" style="display: none;">
+			<h3 class="narrate">
+				Pierwsza przetłumaczona część jak i ta zakodowana wygląda następująco:
+			</h3>
+			<img src="RockImg/LeagueChampions1.png" alt="zagadkaRock1">
+			<h3 class="narrate">
+				Po chwili rozpoznajesz już zakodowaną część. Jest nią:
+			</h3>
+			<div id="InputButtonDiv">
+				<input type="text" id="ZagadkaRock2_1">
+				<button id="zagadkaButton1" class="button-5" onclick="checkAnswer()">Sprawdź</button>
+			</div>
+		</div>
+		<div>
+			<h3 id="BadAnswer">Dręczy cię jakieś dziwne przeczucie. To chyba przeczucie pomyłki.</h3>
+			<h3 id="GoodAnswer">O! Co za miłe uczucie. To uczucie posiadania racji.</h3>
+		</div>
+		<div id="Riddle2" style="display: none;">
+			<h3 class="narrate">
+				Skoro pierwsza część tak dobrze ci poszła, czemu by nie zająć się kolejną?
+			</h3>
+			<img src="RockImg/LeagueChampions2.png" alt="zagadkaRock2">
+			<div id="InputButtonDiv2">
+				<input type="text" id="ZagadkaRock2_2">
+				<button id="zagadkaButton2" class="button-5" onclick="checkAnswer2()">Sprawdź</button>
+			</div>
+			<div>
+				<h3 id="BadAnswer2">Dręczy cię jakieś dziwne przeczucie. To chyba przeczucie pomyłki.</h3>
+				<h3 id="GoodAnswer2">O! Co za miłe uczucie. To uczucie posiadania racji.</h3>
+			</div>
+		</div>
+		<div id="Riddle3" style="display:none;">
+			<h3 class="narrate">
+				Dobra robota ja! To już chyba ostatni fragment.
+			</h3>
+			<img src="RockImg/LeagueChampions3.png" alt="zagadkaRock3">
+			<div id="InputButtonDiv3">
+				<input type="text" id="ZagadkaRock2_3">
+				<button id="zagadkaButton3" class="button-5" onclick="checkAnswer3()">Sprawdź</button>
+			</div>
+			<div>
+				<h3 id="BadAnswer3">Dręczy cię jakieś dziwne przeczucie. To chyba przeczucie pomyłki.</h3>
+				<h3 id="GoodAnswer3">O! Co za miłe uczucie. To uczucie posiadania racji.</h3>
+			</div>
+			<h3 id="NarrateGoodAnswer" class="narrate" style="display:none;">
+				Super! Po odczytaniu wszystkich wiadomości, mądrość ukryta w symbolach brzmi następująco: "Zbuduj własny kilof". Nie brzmi to zbyt mądrze, ale z pewnością się przyda.
+			</h3>
+			<button class="button-5" id="ForwardButton" onclick="window.location.href='Rock3.html'" style="display: none; width:250px;">No mam nadzieję...</button>
+		</div>
 	</div>
 </body>
 </html>
