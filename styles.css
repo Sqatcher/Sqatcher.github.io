@@ -21,6 +21,10 @@ img {
 	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.miejsce {
+	color: #262626;
+}
+
 #EntryImg {
 	margin-top: 130px;
 	height: 25%;
@@ -35,7 +39,7 @@ img {
 	margin: auto;
 	width: 160px;
 	border: 7px solid;
-	border-color: #fa6400;
+	border-color: #262626;
 	border-radius: 100%;
 }
 
@@ -53,16 +57,22 @@ img {
 	padding-bottom: 25px;
 	padding-left: 25px;
 	padding-right: 25px;
+	margin-bottom: 125px;
 }
 
 h1 {
 	font-weight: 1000;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	color: #e15a00;
 }
 
 h3 {
 	margin-left: 15px;
 	margin-right: 15px;
+}
+
+p {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #Button2Div {
@@ -84,7 +94,7 @@ button {
 }
 
 #Yes-response {
-	color: rgb(143, 219, 29);
+	color: rgb(127, 199, 20);
 }
 
 #resp-div {
@@ -141,7 +151,7 @@ button {
 }
 
 #BrownDoorDiv {
-	background-color: brown;
+	background-color: #4a1407;
 }
 
 #BrownDoorDiv > p {
@@ -155,7 +165,7 @@ button {
 
 #GoodAnswer {
 	display: none;
-	color:rgb(143, 219, 29);
+	color:rgb(127, 199, 20);
 }
 #BadAnswer2 {
 	display: none;
@@ -164,7 +174,7 @@ button {
 
 #GoodAnswer2 {
 	display: none;
-	color:rgb(143, 219, 29);
+	color:rgb(127, 199, 20);
 }
 #BadAnswer3 {
 	display: none;
@@ -173,7 +183,7 @@ button {
 
 #GoodAnswer3 {
 	display: none;
-	color:rgb(143, 219, 29);
+	color:rgb(127, 199, 20);
 }
 
 #ForwardButton {
@@ -282,7 +292,7 @@ button {
   touch-action: manipulation;
   vertical-align: baseline;
   margin: auto;
-  width: 20%;
+  width: 25%;
   height: 40px;
 }
 
@@ -303,13 +313,16 @@ button {
 }
 
 .zagadka-rock {
-	color: gold;
-	background-color: rgb(155, 91, 14);
+	color: white;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+
+  	text-shadow: -1px -1px 0 #61220a , 1px -1px 0 #61220a, -1px 1px 0 #61220a, 1px 1px 0 #61220a;
 }
 
 #ElemDiv3 {
@@ -383,4 +396,16 @@ button {
 
 .FragKeyLookUpDiv :nth-child(2n-1){
 	text-align: left;
+}
+
+.obrazekMinecraftRock {
+	width: 50%;
+	border: 5px solid;
+	border-color: #4a1407;
+}
+
+.obrazekRock {
+	width: 75%;
+	border: 3px solid;
+	border-color: #4a1407;
 }
