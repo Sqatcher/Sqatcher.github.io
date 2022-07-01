@@ -19,6 +19,86 @@
 		var poj8 = 8;
 		var poj3 = 0;
 		var poj5 = 0;
+		var activeBucket = 0;
+		var activeBucketObject;
+
+		function setActiveBucket(b) {
+			if (b == activeBucket)
+			{
+				setActiveBucket(0);
+				return;
+			}
+
+			if (activeBucket != 0)
+			{
+				activeBucketObject = document.getElementById("pojemnik"+activeBucket);
+				activeBucketObject.style.border = "3px solid gray";
+				activeBucketObject.style.zIndex = "0";
+			}
+
+			activeBucket = b;
+			
+			if (b == 0)
+			{
+				return;
+			}
+			
+			activeBucketObject = document.getElementById("pojemnik"+activeBucket);
+			activeBucketObject.style.border = "3px solid yellow"
+			activeBucketObject.style.zIndex = "1";
+		}
+
+		function swapLiquidFunction(pojIn, inID) {
+			let type = 0;
+			if (activeBucket == 3){
+				pojOut = poj3;
+				switch(inID)
+				{
+				case 3:
+					type = 0;
+					break;
+				case 5:
+					type = 5;
+					break;
+				case 8:
+					type = 2;
+					break;
+				}
+			}
+			if (activeBucket == 5){
+				pojOut = poj5;
+				switch(inID)
+				{
+				case 5:
+					type = 0;
+					break;
+				case 3:
+					type = 3;
+					break;
+				case 8:
+					type = 6;
+					break;
+				}
+			}
+			if (activeBucket == 8){
+				pojOut = poj8;
+				switch(inID)
+				{
+				case 8:
+					type = 0;
+					break;
+				case 5:
+					type = 4;
+					break;
+				case 3:
+					type = 1;
+					break;
+				}
+			}
+
+			let cap = inID;
+			swapLiquid(pojOut, pojIn, cap, type)
+		}
 
 		function swapLiquid(from, to, cap, type) {
 			cap = cap - to;
@@ -32,41 +112,51 @@
 			var pojemnik3 = document.getElementById("pojemnik3");
 			var pojemnik5 = document.getElementById("pojemnik5");
 
+			if (type == 0) {
+				setActiveBucket(0);
+			}
+
 			if (type == 1) {
 				poj8 -= amount;
 				poj3 += amount;
 				pojemnik8.src = "PojemnikiLitr/Pojemnik8_" + poj8 + ".png";
 				pojemnik3.src = "PojemnikiLitr/Pojemnik3_" + poj3 + ".png";
+				setActiveBucket(0);
 			}
 			if (type == 2) {
 				poj3 -= amount;
 				poj8 += amount;
 				pojemnik3.src = "PojemnikiLitr/Pojemnik3_" + poj3 + ".png";
 				pojemnik8.src = "PojemnikiLitr/Pojemnik8_" + poj8 + ".png";
+				setActiveBucket(0);
 			}
 			if (type == 3) {
 				poj5 -= amount;
 				poj3 += amount;
 				pojemnik5.src = "PojemnikiLitr/Pojemnik5_" + poj5 + ".png";
 				pojemnik3.src = "PojemnikiLitr/Pojemnik3_" + poj3 + ".png";
+				setActiveBucket(0);
 			}
 			if (type == 4) {
 				poj8 -= amount;
 				poj5 += amount;
 				pojemnik8.src = "PojemnikiLitr/Pojemnik8_" + poj8 + ".png";
 				pojemnik5.src = "PojemnikiLitr/Pojemnik5_" + poj5 + ".png";
+				setActiveBucket(0);
 			}
 			if (type == 5) {
 				poj3 -= amount;
 				poj5 += amount;
 				pojemnik5.src = "PojemnikiLitr/Pojemnik5_" + poj5 + ".png";
 				pojemnik3.src = "PojemnikiLitr/Pojemnik3_" + poj3 + ".png";
+				setActiveBucket(0);
 			}
 			if (type == 6) {
 				poj5 -= amount;
 				poj8 += amount;
 				pojemnik8.src = "PojemnikiLitr/Pojemnik8_" + poj8 + ".png";
 				pojemnik5.src = "PojemnikiLitr/Pojemnik5_" + poj5 + ".png";
+				setActiveBucket(0);
 			}
 
 			if (poj8 == 4 || poj3 == 4 || poj5 == 4)
@@ -101,18 +191,18 @@
 			upragnione 4l. Tylko jak to zrobić?
 		</h3>
 		<div id="ElemDiv3" style="border: 5px solid; border-color:rgb(72, 13, 13)">
-			<img id="pojemnik8" src="PojemnikiLitr/Pojemnik8_8.png" alt="pojemnik8">
-			<img id="pojemnik3" src="PojemnikiLitr/Pojemnik3_0.png" alt="pojemnik3">
-			<img id="pojemnik5" src="PojemnikiLitr/Pojemnik5_0.png" alt="pojemnik5">
+			<img id="pojemnik8" src="PojemnikiLitr/Pojemnik8_8.png" alt="pojemnik8" style="border: 3px solid gray">
+			<img id="pojemnik3" src="PojemnikiLitr/Pojemnik3_0.png" alt="pojemnik3" style="border: 3px solid gray">
+			<img id="pojemnik5" src="PojemnikiLitr/Pojemnik5_0.png" alt="pojemnik5" style="border: 3px solid gray">
 		</div>
 		<br>
 		<div id="ButtonRock3">
-			<button class="button-5" onclick="swapLiquid(poj8, poj3, 3, 1)">Z 8l do 3l -></button>
-			<button class="button-5" onclick="swapLiquid(poj3, poj8, 8, 2)"><- Z 3l do 8l</button>
-			<button class="button-5" onclick="swapLiquid(poj5, poj3, 3, 3)"><- Z 5l do 3l</button>
-			<button class="button-5" onclick="swapLiquid(poj8, poj5, 5, 4)">Z 8l do 5l ---></button>
-			<button class="button-5" onclick="swapLiquid(poj3, poj5, 5, 5)">Z 3l do 5l -></button>
-			<button class="button-5" onclick="swapLiquid(poj5, poj8, 8, 6)"><--- Z 5l do 8l</button>
+			<button class="button-5" onclick="setActiveBucket(8)">^</button>
+			<button class="button-5" onclick="setActiveBucket(3)">^</button>
+			<button class="button-5" onclick="setActiveBucket(5)">^</button>
+			<button class="button-5" onclick="swapLiquidFunction(poj8, 8)">V</button>
+			<button class="button-5" onclick="swapLiquidFunction(poj3, 3)">V</button>
+			<button class="button-5" onclick="swapLiquidFunction(poj5, 5)">V</button>
 		</div>
 		<h3 id="Sukces" style="color: rgb(127, 199, 20); display: none">Mam to!</h3>
 		<div id="SukcesNarrate" style="display:none;">
