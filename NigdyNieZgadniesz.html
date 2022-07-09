@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<script src="secretJS.js"></script>>
+	<style>
+		body {
+			background-color: goldenrod;
+		}
+	</style>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<div id="ReturnButtonDiv">
+			<button class="button-5" onclick="mainHall()">Powrót</button>
+		</div>
+		<h1 id="welcome-p">Skarbiec</h1>
+		<h3 class="narrate"></h3>
+		<br>
+		<h3 class="narrate">Linia obrony przed niechcianymi</h3>
+		<div id="InputButtonDiv">
+			<input type="text" id="lastA">
+			<button class="button-5" onclick="checkIgnacyPassword()">Sprawdź</button>
+		</div>
+		<div>
+			<h3 id="BadAnswer">Na-a. Odpowiedź znajduje się w instrukcji.</h3>
+			<h3 id="GoodAnswer">Dokładnie. Teraz pora na ostatni krok!</h3>
+		</div>
+		<button class="button-5" id="LastHallButton" style="display: none" onclick="window.location.href='TheFinalVault3008.html'">Naprzód!</button>
+	</div>
+</body>
+</html>
