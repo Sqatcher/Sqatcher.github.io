@@ -14,6 +14,23 @@
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
+
+		function oneClick() {
+			document.getElementById("B1").onclick = "";
+			document.getElementById("B1").style.marginLeft = "75px";
+			document.getElementById("B2").style.display = "none";
+			document.getElementById("OneTap").style.display = "block";
+			document.getElementById("Tap").style.display = "block";
+		}
+
+		function twoClick() {
+			document.getElementById("B2").onclick = "";
+			document.getElementById("B2").style.marginLeft = "375px";
+			document.getElementById("B1").style.display = "none";
+			document.getElementById("TwoTap").style.display = "block";
+			document.getElementById("Tap").style.display = "block";
+		}
+
 	</script>
 </head>
 <body>
@@ -25,8 +42,41 @@
 			<button class="button-5" onclick="mainHall()">Powrót</button>
 		</div>
 		<h1 id="welcome-p">Furtka Leśna</h1>
-		<h3 class="narrate"></h3>
 		<br>
+		<h3 class="narrate">
+			Podchodzisz do "Furtki Leśnej" przygotowana na najgorsze. Bierzesz głęboki wdech, zbierasz w sobie siły i dotykasz portalu. Natychmiast zostajesz pochłonięta przez 
+			coś, co wygląda jak tunel czasoprzestrzenny (czytałaś o tym w książce) i pędzisz przez niego z niesamowitą, wydawałoby się, prędkością. Wtem jednak pojawia się przed tobą robot. 
+			Wydaje ci się, że stoi on w miejscu, jednak nie jesteś w stanie go wyprzedzić. On cały czas znajduje się przed tobą. W końcu zaczyna wydawać z siebie piskliwe dźwięki 
+		</h3>
+		<h3 class="robot">bip bop bUP bep</h3>
+		<h3 class="narrate">
+			Hmm, chyba nie tak powinien działać robot. Czy coś jest z nim nie tak? Czy tak właśnie ma działać? Zadajesz sobie takie i podobne pytania dzięki czemu nawet nie zauważasz 
+			nawet kiedy	minęła podróż. Dookoła ciebie nagle wyrasta multum drzew i krzaków, ty sama zaś znajdujesz się w niczym niewyróżniającym się miejscu. Nieopodal jednak, za dwoma 
+			krzakami i trzema drzewami dostrzegasz ścieżkę. Gdy chcesz już do niej podejść i zobaczyć gdzie prowadzi, o swojej obecności przypomina ci robot
+		</h3>
+		<h3 class="robot">bLEp bWoOot kRIt GooooHhhhhh Tot</h3>
+		<h3 class="narrate">
+			Musisz przyznać, że chyba jest z nim coraz gorzej. Dźwięki są coraz bardziej nieprzewidywalne i nie wiesz, czy może zaraz nie wybuchnie. Może więc warto mu pomóc? 
+			Z drugiej strony, może wcale go nie potrzebujesz. Widzisz ścieżkę przed sobą i masz szansę poradzić sobie sama.
+		</h3>
+		<h3 class="narrate">Po chwili na przemyślenia jesteś gotów podjąć decyzję.</h3>
+		<div id="Button2Div">
+			<button id="B1" class="button-5" onclick="oneClick()" style="width:200px; height: 100px;">Idziesz ścieżką</button>
+			<button id="B2" class="button-5" onclick="twoClick()" style="width:200px; height: 100px;">Pomagasz robotowi</button>
+		</div>
+		<div id="OneTap" style="display: none">
+
+		</div>
+		<div id="TwoTap" style="display: none">
+			<h3 class="narrate">
+				Tylko czy na pewno sobie sama poradzisz? Z trzeciej strony bowiem ten robot chyba nie znalazł się tutaj przypadkiem. Kto wie co może się wydarzyć po drodze w tym nieprzewidywalnym 
+				świecie. Podchodzisz zatem do niego wciąż słuchając drażniących odgłosów
+			</h3>
+			<h3 class="robot">PRrrrruh ftAh bWliggO</h3>
+			<h3 class="narrate">
+				
+			</h3>
+		</div>
 	</div>
 </body>
 </html>

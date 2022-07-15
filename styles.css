@@ -21,6 +21,14 @@ img {
 	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.robot {
+	font-weight: 5000;
+	color:rgb(13, 148, 112);
+	margin-left: 10px;
+	margin-right: 10px;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .miejsce {
 	color: #262626;
 }
