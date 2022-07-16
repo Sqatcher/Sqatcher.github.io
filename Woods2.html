@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<style>
+		body {
+			background-color: rgb(26, 85, 17);
+		}
+	</style>
+	<script>
+		function getRandomInt(max) {
+		  return Math.floor(Math.random() * max) + 1;
+		}
+
+		function mainHall() {
+			window.location.href = "The_Main_Hall.html";
+		}
+
+	</script>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<div id="ReturnButtonDiv">
+			<button class="button-5" onclick="mainHall()">Powrót</button>
+		</div>
+		<h1 id="welcome-p">Furtka Leśna</h1>
+		<br>
+		<h3 class="narrate">
+			Dialog z robotem.
+		</h3>
+		
+	</div>
+</body>
+</html>

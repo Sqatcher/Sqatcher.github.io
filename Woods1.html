@@ -11,6 +11,10 @@
 		}
 	</style>
 	<script>
+		function getRandomInt(max) {
+		  return Math.floor(Math.random() * max) + 1;
+		}
+
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
@@ -20,7 +24,6 @@
 			document.getElementById("B1").style.marginLeft = "75px";
 			document.getElementById("B2").style.display = "none";
 			document.getElementById("OneTap").style.display = "block";
-			document.getElementById("Tap").style.display = "block";
 		}
 
 		function twoClick() {
@@ -28,7 +31,122 @@
 			document.getElementById("B2").style.marginLeft = "375px";
 			document.getElementById("B1").style.display = "none";
 			document.getElementById("TwoTap").style.display = "block";
-			document.getElementById("Tap").style.display = "block";
+		}
+
+		let glitch = [2, 1, 3];
+		let j=0;
+		let k=1;
+
+		function choosePath(choice) {
+			console.log(choice);
+			if (j>12)
+			{
+				document.getElementById("HintDiv").style.display = "block";
+			}
+			if (j>36)
+			{
+				document.getElementById("Hint1").textContent = "W tym momencie błąkasz się po lesie bez celu. Powinnaś wrócić po robota."
+			}
+
+			if (j>50)
+			{
+				document.getElementById("Hint1").style.display = "none";
+				document.getElementById("Hint2").style.display = "block";
+				document.getElementById("Logo").style.borderColor = "orange";
+				disappearArrows();
+
+			}
+			if (j<3)
+			{
+				if (choice == glitch[j])
+				{
+					j+=1;
+				}
+				else
+				{
+					j+=4;
+				}
+			}
+
+			if (j==3)
+			{
+				makeGlitch();
+				return;
+			}
+
+			if (j>3 && j<100)
+			{
+				j += 4;
+			}
+
+			k = (getRandomInt(3) + k) % 4;
+			if (k==0)
+			{
+				k = 4;
+			}
+			document.getElementById("PathImage").src = "WoodsImg/Path" + k + ".png";
+		}
+
+		function disappearArrows() {
+			document.getElementById("ArrowsDiv").style.display = "none";
+		}
+
+		function robotComeback() {
+			disappearArrows();
+			document.getElementById("TwoTap").style.display = "block";
+		}
+
+		function makeGlitch() {
+			document.getElementById("MainDiv").style.display = "none";
+			document.body.style.backgroundColor = "black";
+			document.getElementById("GlitchDiv").style.display = "block";
+			document.getElementById("Logo").style.borderColor = "red";
+		}
+
+		let h=3;
+		var intervalID;
+
+		function glitchButton() {
+			h -= 1;
+			if (h==0)
+			{
+				document.getElementById("GlitchButtonDiv").style.display = "none";
+				intervalID = setInterval(glitchPathChoose, 2500);
+			}
+		}
+
+		function glitchPathChoose() {
+			clearInterval(intervalID);
+			document.getElementById("GlitchPathChooseDiv").style.display = "grid";
+		}
+
+		let correct = [1, 2, 3, 3, 1, 4];
+		let i=0;
+		let arrowsActive = true;
+
+		function clickArrow(arrow) {
+			if (arrow == correct[i])
+			{
+				i += 1;
+			}
+			else
+			{
+				i=0;
+			}
+			if (arrowsActive == true)
+			{
+				document.getElementById("PowerImage").src = "WoodsImg/Power" + i + ".png";
+			}
+			if (i == 6)
+			{
+				wellDone();
+				return;
+			}
+		}
+
+		function wellDone() {
+			arrowsActive = false;
+			document.getElementById("WellDoneDiv").style.display = "block";
 		}
 
 	</script>
@@ -65,17 +183,66 @@
 			<button id="B2" class="button-5" onclick="twoClick()" style="width:200px; height: 100px;">Pomagasz robotowi</button>
 		</div>
 		<div id="OneTap" style="display: none">
-
+			<h3 class="narrate">
+				Niepotrzebny ci żaden robot. W końcu co może cię czekać w wyimaginowanym lesie propagującym nadprzyrodzone byty bez żadnego sensownego porządku? Ruszasz 
+				zatem ścieżką, jednak na każdym skrzyżowaniu musisz podjąć decyzję - gdzie teraz?
+			</h3>
+			<img id="PathImage" class="obrazekWoods" src="WoodsImg/Path1.png" alt="path">
+			<div id="ArrowsDiv" style="display: grid; grid-template-columns: auto auto auto;">
+				<button class="button-5" onclick="choosePath(1)">&#8592</button>
+				<button class="button-5" onclick="choosePath(2)">&#8593</button>
+				<button class="button-5" onclick="choosePath(3)">&#8594</button>
+			</div>
+			<div id="HintDiv" style="display: none">
+				<h3 id="Hint1" class="narrate">
+					Zdaje się, że układ ścieżek zmienia się z każdym kolejnym wyborem. Może jednak warto wrócić po tego robota?
+				</h3>
+				<h1 id="Hint2" style="display: none;">Wróć po robota.</h1>
+				<button class="button-5" onclick="robotComeback()">Wróć</button>
+			</div>
 		</div>
 		<div id="TwoTap" style="display: none">
 			<h3 class="narrate">
-				Tylko czy na pewno sobie sama poradzisz? Z trzeciej strony bowiem ten robot chyba nie znalazł się tutaj przypadkiem. Kto wie co może się wydarzyć po drodze w tym nieprzewidywalnym 
-				świecie. Podchodzisz zatem do niego wciąż słuchając drażniących odgłosów
+				Decydujesz się w końcu pójść po robota. Tak, to wygląda jak dobra decyzja! Podchodzisz zatem do niego wciąż słuchając drażniących odgłosów
 			</h3>
 			<h3 class="robot">PRrrrruh ftAh bWliggO</h3>
 			<h3 class="narrate">
-				
+				Ok... co my tu mamy. Przyglądając się robotowi próbujesz znaleźć coś, co pomogłoby ci go zrozumieć. Widzisz, oczywiście, jego głowę, parę mechanicznych rąk, gąsienice, na których 
+				powinien się poruszać.. standardowe wyposażenie robota. Przyglądasz się zatem dokładniej. Jego oczy zdają się łagodnie świecić, ale nie widać żadnych innych śladów życia. 
+				A raczej bycia włączonym. Przechodzisz więc na tyły robota i dopiero tam zauważasz niewielkie metalowe drzwiczki. Po ich otwarciu widzisz przed sobą 4 przyciski, które 
+				reprezentują 4 strzałki. Ok, Ok, z tym już da się coś robić. Tylko co? Gdy zadajesz sobie te pytania, robot ponownie wydaje swoje dźwięki
 			</h3>
+			<h3 class="robot">beeeep boooop GÓRA wop DOWN</h3>
+			<h3 class="narrate">
+				Hmm, te dźwięki wydawały się już mieć sens. Czy to znaczy, że robot od początku próbował coś powiedzieć? Jest na to całkiem spora szansa. Widzisz przed sobą 4 strzałki, 
+				tylko wciąż nie wiesz jakiej kombinacji użyć. Może właśnie to chciał przekazać robot? Do tego trzeba rozszyfrować wiadomość od samego początku.
+			</h3>
+
+			<div class="arrow4div">
+				<p></p> <button class="button-5" onclick="clickArrow(1)">&#8593</button> <p></p>
+				<button class="button-5" onclick="clickArrow(2)"> &#8592 </button> <p></p> <button class="button-5" onclick="clickArrow(3)"> &#8594</button>
+				<p></p> <button class="button-5" onclick="clickArrow(4)">&#8595</button> <p></p>
+			</div>
+			<img id="PowerImage" src="WoodsImg/Power0.png" alt="POWER image" style="height: 100px; width: 325px; margin-top: 10px;">
+
+			<div id="WellDoneDiv" style="display: none;">
+				<h3 class="narrate">
+					Po kliknięciu odpowiednich strzałek robot się resetuje.
+				</h3>
+				<button id="ForwardButton" class="button-5" style="display: block; width: 250px;" onclick="window.location.href='Woods2.html'">Podążaj za robotem</button>
+			</div>
+		</div>
+	</div>
+	<div id="GlitchDiv" class="middle-div" style="display: none; margin-top: 30px;">
+		<img id="PathImageGlitch" class="obrazekWoodsGlitch" src="WoodsImg/droga.png" alt="path">
+		<div id="GlitchButtonDiv" style="display: grid; grid-template-columns: auto auto auto; width: 500px; margin: auto; margin-top: 10px">
+			<button class="button-5" onclick="glitchButton()">&#8592</button>
+			<button class="button-5" onclick="glitchButton()">&#8593</button>
+			<button class="button-5" onclick="glitchButton()">&#8594</button>
+		</div>
+		<div id="GlitchPathChooseDiv" style="display: none; grid-template-columns: auto auto; width: 500px; margin: auto">
+			<button class="button-5" onclick="window.location.href='Woods2.html'" style="background-color: rgb(77, 6, 77); color: red">1</button>
+			<button class="button-5" onclick="window.location.href='Woods2.html'" style="background-color: rgb(77, 6, 77); color: red">2</button>
 		</div>
 	</div>
 </body>
