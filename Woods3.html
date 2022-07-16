@@ -20,7 +20,6 @@
 		}
 
 		let waterTrunk = [0,0,0,0,0];
-		let solution = [0, 1, 0, 2, 1];
 		function addWater(trunkNumber) {
 			if (waterTrunk[trunkNumber] == 2)
 			{
@@ -28,18 +27,6 @@
 			}
 			waterTrunk[trunkNumber]+=1;
 			document.getElementById("BucketImg" + trunkNumber).src = "WoodsImg/Trunk"+waterTrunk[trunkNumber]+"_"+trunkNumber+".png";
-			let i=0;
-			for (i=0; i<5; i++)
-			{
-				if (solution[i] != waterTrunk[i])
-				{
-					break;
-				}
-			}
-			if (i==5)
-			{
-				document.getElementById("SolutionDiv").style.display = "block";
-			}
 		}
 
 		function resetTrunks() {
@@ -62,26 +49,9 @@
 		<h1 id="welcome-p">Furtka Leśna</h1>
 		<br>
 		<h3 class="narrate">
-			Dialog z robotem.
+			Ostateczny dialog z robotem.
 		</h3>
-		<div class="button4div">
-			<img id="BucketImg1" src="WoodsImg/Trunk0_1.png" alt="obrazek1">
-			<img id="BucketImg2" src="WoodsImg/Trunk0_2.png" alt="obrazek2">
-			<img id="BucketImg3" src="WoodsImg/Trunk0_3.png" alt="obrazek3">
-			<img id="BucketImg4" src="WoodsImg/Trunk0_4.png" alt="obrazek4">
-
-			<button class="button-5" onclick="addWater(1)">+</button>
-			<button class="button-5" onclick="addWater(2)">+</button>
-			<button class="button-5" onclick="addWater(3)">+</button>
-			<button class="button-5" onclick="addWater(4)">+</button>
-		</div>
-		<button class="button-5" onclick="resetTrunks()" style="width: 300px;">Reset</button>
-		<div id="SolutionDiv" style="display: none;">
-			<h3 class="narrate">
-				Tak jest! Kolejna zagadka rozwiązana. Ta chyba nie była zbyt ciężka, co?
-			</h3>
-			<button class="button-5" onclick="window.location.href='Woods3.html'">Naprzód!</button>
-		</div>
+		
 	</div>
 </body>
 </html>
