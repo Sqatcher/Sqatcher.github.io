@@ -18,40 +18,190 @@
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
+		
+		let i = 0;
+		var intervalID1;
+		var intervalID2 = 0;
 
-		let waterTrunk = [0,0,0,0,0];
-		function addWater(trunkNumber) {
-			if (waterTrunk[trunkNumber] == 2)
+		function clickButton(button1, button2, LorR, divUncover) {
+			document.getElementById(button1).onclick = "";
+			if (LorR == "L")
 			{
+				document.getElementById(button1).style.marginLeft = "75px";
+			}
+			else
+			{
+				document.getElementById(button1).style.marginLeft = "375px";
+			}
+			document.getElementById(button2).style.display = "none";
+			document.getElementById(divUncover).style.display = "block";
+
+			if (divUncover == "Div4")
+			{
+				intervalID1 = setInterval(appearRedText, 14000);
+			}
+			if (divUncover == "Div5")
+			{
+				clearInterval(intervalID1);
+				clearInterval(intervalID2);
+			}
+		}
+
+		function appearRedText() {
+			document.getElementById("RedText").style.display = "block";
+			intervalID2 = setInterval(disappearRedText, 2500);
+		}
+
+		function disappearRedText() {
+			document.getElementById("RedText").style.display = "none";
+			document.getElementById("Button41").style = "background-color: black; color:red;";
+			document.getElementById("Button41").textContent = "ZABIJ ICH WSZYSTKICH";
+			document.getElementById("Button41").onclick = TrolleyProblemStart;
+			clearInterval(intervalID1);
+			clearInterval(intervalID2);
+		}
+
+		function TrolleyProblemStart() {
+			document.getElementById("MainDiv").style.display = "none";
+			document.body.style.backgroundColor = "black";
+			document.getElementById("GlitchDiv").style.display = "block";
+			document.getElementById("Logo").style.borderColor = "red";
+		}
+
+		let k=0;
+
+		function clickTrolleyButton() {
+			k+=1;
+			changeTrolleyText();
+		}
+
+		function changeTrolleyText() {
+			document.getElementById("TrolleyText").style.display = "none";
+			let tekst = "";
+			switch(k)
+			{
+			case 1:
+				tekst = "Zmieńmy teraz nieco szczegóły. A co jeżeli tą jedną osobą na torach jest mała dziewczynka. Jest właśnie na drodze do szkoły. Ma najlepsze oceny w klasie i planuje zostać lekarzem, bo uwielbia pomagać ludziom. Pięcioro osób, które weszly na tory, to z kolei kryminaliści, skazani na dożywocie, którzy właśnie uciekli z więzienia. Policja i tak zaraz ich złapie, ale myśleli, że przejście przez tory jest ich jedyną okazją. Czy przesuwasz dźwignię?";
+				break;
+			case 2:
+				tekst = "OK, wróćmy do oryginalnego scenariusza, w którym pociąg jedzie na pięcioro ludzi, o których nic nie wiemy. Tym razem jednak nie stoisz obok dźwigni, a obok starszego człowieka. Ewidentnie pogubił się on w życiu. Teraz ledwo stoi na nogach, czuć od niego alkohol, prawdopodobnie nie ma on rodziny. Jedynym sposobem, aby zatrzymać pędzący pociąg jest rzucenie tego człowieka na tory. Czy robisz to?";
+				break;
+			case 3:
+				tekst = "A co jeśli nie ma tam żadnego człowieka. Jedyną osobą, którą możesz rzucić jesteś ty sam. Czy rzucasz się na tory?";
+				break;
+			case 4:
+				backToReality();
 				return;
 			}
-			waterTrunk[trunkNumber]+=1;
-			document.getElementById("BucketImg" + trunkNumber).src = "WoodsImg/Trunk"+waterTrunk[trunkNumber]+"_"+trunkNumber+".png";
+			document.getElementById("TrolleyText").textContent = tekst;
+			document.getElementById("TB1").onclick = "";
+			document.getElementById("TB2").onclick = "";
+			intervalID1 = setInterval(appearTrolley, 2000);
 		}
 
-		function resetTrunks() {
-			for (let i=1; i<=4; i++)
-			{
-				waterTrunk[i] = 0;
-				document.getElementById("BucketImg" + i).src = "WoodsImg/Trunk"+waterTrunk[i]+"_"+i+".png";
-			}
+		function appearTrolley() {
+			document.getElementById("TrolleyText").style.display = "block";
+			document.getElementById("TB1").onclick = clickTrolleyButton;
+			document.getElementById("TB2").onclick = clickTrolleyButton;
+			clearInterval(intervalID1);
 		}
+
+		function backToReality() {
+			document.getElementById("MainDiv").style.display = "block";
+			document.body.style.backgroundColor = "rgb(26, 85, 17)";
+			document.getElementById("GlitchDiv").style.display = "none";
+			document.getElementById("Logo").style.borderColor = "#262626";
+
+			
+			document.getElementById("Button41").style = "";
+			document.getElementById("Button41").textContent = "Poświęć 5 kwiatków";
+			document.getElementById("Button41").onclick = "";
+			clickButton('Button41', 'Button42', 'L', 'Div5');
+		}
+
 	</script>
 </head>
 <body>
 	<div class="middle-div">
 		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
 	</div>
+	<div id="GlitchDiv" class="middle-div" style="display: none; color: red;">
+		<h3 id="TrolleyText" class="robot" style="color: red">
+			Stoisz na torach, po których jedzie pociąg. Widzisz, że jedzie on prosto na pięcioro ludzi. Masz jednak obok siebie dźwignię. Gdy ją pociągniesz, 
+			pociąg zmieni tor i przejedzie tylko jedną osobę, która się tam znajduje. Czy przesuwasz dźwignię?
+		</h3>
+		<div class="button2Div">
+			<button id="TB1" class="button-5" onclick="clickTrolleyButton()" style="background-color: rgb(77, 6, 77); color: red">Tak</button>
+			<button id="TB2" class="button-5" onclick="clickTrolleyButton()" style="background-color: rgb(77, 6, 77); color: red">Nie</button>
+		</div>
+	</div>
 	<div class="middle-div" id="MainDiv">
 		<div id="ReturnButtonDiv">
 			<button class="button-5" onclick="mainHall()">Powrót</button>
 		</div>
-		<h1 id="welcome-p">Furtka Leśna</h1>
+		<h1 id="welcome-p" class="miejsce-W">Furtka Leśna</h1>
 		<br>
 		<h3 class="narrate">
 			Ostateczny dialog z robotem.
 		</h3>
-		
+		<h3 class="robot">Wyobraź sobie, że masz piękny ogród, w którym posadziłaś 100 kwiatków. Któregoś dnia przyleciała jednak
+			grupa niebezpiecznych owadów, która może zniszczyć te kwiatki. Możesz albo zaryzykować życie wszystkich kwiatków, próbując zwalczyć owady 
+			klasycznymi metodami ALBO możesz przesadzić 20 kwiatków, przeznaczając je na pożarcie przez owady.
+		</h3>
+		<div class="button2Div">
+			<button id="Button11" class="button-5" onclick="clickButton('Button11', 'Button12', 'L', 'Div2')">Zaryzykuj życie wszystkich kwiatków</button>
+			<button id="Button12" class="button-5" onclick="clickButton('Button12', 'Button11', 'R', 'Div2')">Poświęć 20 kwiatków</button>
+		</div>
+		<div id="Div2" style="display: none">
+			<h3 class="robot">
+				Hm. Ciekawe.
+			</h3>
+			<h3 class="robot">
+				Innego razu, nad twoim ogrodem zaczęła się zbierać straszliwa burza. Wiesz, że twoje kwiatki nie znoszą ciężkiej pogody.
+				Podobnie jednak nie lubią się przenosić. Możesz przesadzić je wszystkie w bezpieczne miejsce, przy czym prawdopodobnie 
+				zginie około 20% kwiatków, ALBO liczyć, że same przeżyją tę strzaszną pogodę.
+			</h3>
+			<div class="button2Div">
+				<button id="Button21" class="button-5" onclick="clickButton('Button21', 'Button22', 'L', 'Div3')">Zaryzykuj życie wszystkich kwiatków</button>
+				<button id="Button22" class="button-5" onclick="clickButton('Button22', 'Button21', 'R', 'Div3')">Poświęć 20% kwiatków</button>
+			</div>
+		</div>
+		<div id="Div3" style="display: none">
+			<h3 class="robot">
+				Ah tak? Interesujące.
+			</h3>
+			<h3 class="robot">
+				Również i ziemia nie daje jednak spokoju twoim kwiatkom. Poprzez litry nieczystości wylanych do rzeki nieopodal, ziemia zaczyna być 
+				trująca dla roślin. Możesz trzymać mocno kciuki, licząc na to, że twoje kwiatki dadzą radę ALBO możesz zorganizować nowe źródło wody, 
+				jednak fazy przejściowej nie przetrwa co piąty kwiatek.
+			</h3>
+			<div class="button2Div">
+				<button id="Button31" class="button-5" onclick="clickButton('Button31', 'Button32', 'L', 'Div4')">Zaryzykuj życie wszystkich kwiatków</button>
+				<button id="Button32" class="button-5" onclick="clickButton('Button32', 'Button31', 'R', 'Div4')">Poświęć 1/5 kwiatków</button>
+			</div>
+		</div>
+		<div id="Div4" style="display: none">
+			<h3 class="robot">
+				Nie przestajesz mnie zadziwiać, ale niech będzie. To już ostatni problem.
+			</h3>
+			<h3 class="robot">
+				Plaga owadów bowiem powraca. Tym razem wiesz, że przyleciały one pożerać i łatwo się ich nie pozbędziesz. Musisz dokonać 
+				poświęcenia. Tym razem owadów jest mniej, więc wystarczy oddać im 5 kwiatków z ogrodu. W międzyczasie jednak spodobał ci się jeden z kwiatków
+				i przeniosłaś go do doniczki, aby razem z tobą mógł cieszyć się życiem. Możesz użyć tej doniczki (oraz kwiatka w niej siedzącego), aby odciagnąć
+				owady od ogrodu i zaspokoić ich pragnienie tylko tym jednym kwiatkiem. Jaki jest twój wybór?
+			</h3>
+			<h3 id="RedText" class="robot" style="color: red; background-color: black; display: none; width: auto; font-size: 24px;">A co jeśli kwiatki to tak naprawdę ludzie?</h3>
+			<div class="button2Div">
+				<button id="Button41" class="button-5" onclick="clickButton('Button41', 'Button42', 'L', 'Div5')">Poświęć 5 kwiatków</button>
+				<button id="Button42" class="button-5" onclick="clickButton('Button42', 'Button41', 'R', 'Div5')">Poświęć 1 kwiatka</button>	
+			</div>
+		</div>
+		<div id="Div5" style="display: none">
+			<h3 class="robot">
+				Dobrze. Dziękuję bardzo za pomoc! Mam nadzieję, że Cię zbytnio nie zanudziłem. Proszę, tutaj, o to jak najbardziej zasłużony fragment klucza.
+			</h3>
+			<button class="button-5" onclick="window.location.href='WoodsFinal.html'">Odbierz fragment klucza</button>			
+		</div>
 	</div>
 </body>
 </html>

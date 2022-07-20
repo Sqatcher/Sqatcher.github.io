@@ -33,6 +33,10 @@ img {
 	color: #262626;
 }
 
+.miejsce-W {
+	color: #88b200;
+}
+
 #EntryImg {
 	margin-top: 130px;
 	height: 25%;
@@ -450,4 +454,17 @@ button {
 	margin: auto;
 	margin-bottom: 15px;
 	grid-row-gap: 15px;
+}
+
+.button2Div {
+	display: grid;
+	grid-template-columns: auto auto;
+	width: 60%;
+	margin: auto;
+	margin-top: 40px;
+}
+
+.button2Div > button {
+	width: 230px;
+	height: 100px;
 }

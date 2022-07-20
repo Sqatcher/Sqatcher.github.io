@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<style>
+		body {
+			background-color: rgb(26, 85, 17);
+		}
+	</style>
+	<script>
+		function mainHall() {
+			window.location.href = "The_Main_Hall.html";
+		}
+		
+		function takeKey() {
+			document.getElementById("TakeKeyDiv").style.display = "block";
+			document.getElementById("ForwardButton").style.display = "block";
+			sessionStorage.setItem("WoodKey", 1);
+		}
+
+	</script>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<div id="ReturnButtonDiv">
+			<button class="button-5" onclick="mainHall()">Powrót</button>
+		</div>
+		<h1 id="welcome-p" class="miejsce-W">Furtka Leśna</h1>
+		<br>
+		<h3 class="narrate">
+			J4R-V15 trzyma fragment klucza w jednej ze swoich łapek. Wystarczy po niego sięgnąć.
+		</h3>
+
+		<button class="button-5" onclick="takeKey()">Sięgnij</button>
+
+		<div id="TakeKeyDiv">
+			<h3 class="narrate">
+				Wyciągasz rękę po klucz, lecz gdy już masz go dotknąć, on znika. Przytłacza cię jednak ogrom nowonabytej wiedzy.
+			</h3>
+			<div id="FragKeyDiv">
+				<h3>
+					<i>Numer klucza: </i>
+				</h3>
+				<h3>2</h3>
+				<h3>
+					<i>Treść klucza: </i>
+				</h3>
+				<h3>treść2</h3>
+				<h3>
+					<i>Wskazówka: </i>
+				</h3>
+				<h3>Aby klucze ułożyły całość, należy je ustawić w odpowiedniej kolejności</h3>
+			</div>
+		</div>
+		
+		<button id="ForwardButton" class="button-5" style="display: none; width: 250px;" onclick="mainHall()">Wracamy do domu</button>
+	</div>
+</body>
+</html>
