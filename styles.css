@@ -394,8 +394,9 @@ button {
 
 #FragKeyDiv {
 	margin: auto;
-	width: 25%;
+	width: 50%;
 	background-color: darkmagenta;
+	border-radius: 15px;
 	color: whitesmoke;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -431,15 +432,33 @@ button {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	display: none;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto;
+	grid-column-gap: 10px;
 }
 
-.FragKeyLookUpDiv :nth-child(2n){
-	text-align: center;
+.FragKeyLookUpDiv > p {	
+	background-color: #dddddd;
+	color: black;
+	width: 90%;
+	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
-.FragKeyLookUpDiv :nth-child(2n-1){
-	text-align: left;
+#RockFragDiv {
+	background-color: brown;
+}
+
+#FireFragDiv {
+	background-color: red;
+}
+
+#WoodFragDiv {
+	background-color: green;
+}
+
+#WaterFragDiv {
+	background-color: blue;
 }
 
 .obrazekMinecraftRock {
