@@ -123,8 +123,13 @@ button {
 	grid-template-columns: auto auto;
 }
 
+#Button4DoorDiv {
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+}
+
 .doorDiv {
-	width: 70%;
+	width: 95%;
 	height: 400px;
 	margin: auto;
 	margin-top: 10px;
@@ -134,40 +139,53 @@ button {
 }
 
 .doorDiv p {
-	margin-top: 50px;
+	margin-top: 375px;
 	font-size: 20px;
+	background-color: black;
 }
 
 #RedDoorDiv {
-	background-color: red;
+	background-image: url("Doors/blue_door_neutral.png");
+	background-repeat: no-repeat;
+	background-size: 100% 95%;
 }
 
 #RedDoorDiv > p {
 	color: yellow;
+	background-color: red;
 }
 
 #GreenDoorDiv {
-	background-color: green;
+	background-image: url("Doors/green_door_neutral.png");
+	background-repeat: no-repeat;
+	background-size: 100% 95%;
 }
 
 #GreenDoorDiv > p {
 	color: lightcoral;
+	background-color: green;
 }
 
 #BlueDoorDiv {
-	background-color: blue;
+	background-image: url("Doors/blue_door_neutral.png");
+	background-repeat: no-repeat;
+	background-size: 100% 95%;
 }
 
 #BlueDoorDiv > p {
 	color: lightgrey;
+	background-color: blue;
 }
 
 #BrownDoorDiv {
-	background-color: #4a1407;
+	background-image: url("Doors/green_door_neutral.png");
+	background-repeat: no-repeat;
+	background-size: 100% 95%;
 }
 
 #BrownDoorDiv > p {
 	color: lightblue;
+	background-color: brown;
 }
 
 #BadAnswer {
@@ -376,7 +394,7 @@ button {
 
 #FragKeyDiv {
 	margin: auto;
-	width: 50%;
+	width: 25%;
 	background-color: darkmagenta;
 	color: whitesmoke;
 	padding-top: 20px;
@@ -395,7 +413,7 @@ button {
 
 #KeyLookUpDiv {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: 25% 25% 25% 25%;
 }
 
 #KeyLookUpDiv > button{
@@ -406,8 +424,8 @@ button {
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	width: 400px;
-	height: 250px;
+	width: 90%;
+	height: 350px;
 	background-color: darkmagenta;
 	color: whitesmoke;
 	padding-top: 20px;

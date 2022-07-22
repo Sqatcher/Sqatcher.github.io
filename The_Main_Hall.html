@@ -19,6 +19,13 @@
 		var waterKey = sessionStorage.getItem("WaterKey");
 		var rockKey = sessionStorage.getItem("RockKey");
 
+		function showAll() {
+			showFireFrag();
+			showWoodFrag();
+			showWaterFrag();
+			showRockFrag();
+		}
+
 		function showFireFrag() {
 			if (fireKey == 1)
 			{
@@ -118,6 +125,7 @@
 			window.location.href = "Rock1.html";
 		}
 
+		window.onload = function() {showAll()};
 	</script>
 </head>
 <body>
@@ -128,7 +136,7 @@
 		<h1 class="miejsce">Sala Główna</h1>
 		<h3 class="narrate">Znów stoisz pośrodku Sali Głównej, jednak wciąż nie jesteś pewna czy zdobyłaś już cały klucz. 
 			Możesz wybrać miejsce, do którego pragniesz się udać bądź spróbować włożyć klucz na miejsce.</h3>
-		<div id="Button4Div">
+		<div id="Button4DoorDiv">
 			<div class="doorDiv" id="RedDoorDiv" onclick="ogien()">
 				<p>Pieczara Ognia</p>
 			</div>
@@ -144,7 +152,6 @@
 		</div>
 		<br>
 		<div id="KeyLookUpDiv">
-			<button class="button-5" onclick="showFireFrag()">Ognisty fragment klucza</button>
 			<div id="FireFragDiv" class="FragKeyLookUpDiv" style="display: none">
 				<h3><i>Numer klucza: </i></h3>
 				<h3>1</h3>
@@ -154,7 +161,6 @@
 				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
 			</div>
 			<div id="FireFragPlaceHolder" style="width:400px; height: 330px"></div>
-			<button class="button-5" onclick="showWoodFrag()">Leśny fragment klucza</button>
 			<div id="WoodFragDiv" class="FragKeyLookUpDiv" style="display: none">
 				<h3><i>Numer klucza: </i></h3>
 				<h3>1</h3>
@@ -163,8 +169,7 @@
 				<h3><i>Wskazówka: </i></h3>
 				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
 			</div>
-			<div id="WoodFragPlaceHolder" style="width:400px; height: 330px"></div>
-			<button class="button-5" onclick="showWaterFrag()">Wodny fragment klucza</button>
+			<div id="WoodFragPlaceHolder" style="height: 330px"></div>
 			<div id="WaterFragDiv" class="FragKeyLookUpDiv" style="display: none">
 				<h3><i>Numer klucza: </i></h3>
 				<h3>1</h3>
@@ -174,7 +179,6 @@
 				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
 			</div>
 			<div id="WaterFragPlaceHolder" style="width:400px; height: 330px"></div>
-			<button class="button-5" onclick="showRockFrag()">Skalny fragment klucza</button>
 			<div id="RockFragDiv" class="FragKeyLookUpDiv" style="display: none">
 				<h3><i>Numer klucza: </i></h3>
 				<h3>1</h3>
