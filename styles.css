@@ -37,6 +37,14 @@ img {
 	color: #88b200;
 }
 
+.miejsce-F {
+	color: rgb(198, 42, 14);
+}
+
+.miejsce-Water {
+	color: rgb(64, 64, 221);
+}
+
 #EntryImg {
 	margin-top: 130px;
 	height: 25%;
@@ -145,7 +153,7 @@ button {
 }
 
 #RedDoorDiv {
-	background-image: url("Doors/blue_door_neutral.png");
+	background-image: url("Doors/red_door_neutral.png");
 	background-repeat: no-repeat;
 	background-size: 100% 95%;
 }
@@ -178,7 +186,7 @@ button {
 }
 
 #BrownDoorDiv {
-	background-image: url("Doors/green_door_neutral.png");
+	background-image: url("Doors/brown_door_neutral.png");
 	background-repeat: no-repeat;
 	background-size: 100% 95%;
 }
@@ -344,14 +352,16 @@ button {
 
 .arrow4div {
 	margin: auto;
+	margin-top: 10px;
 	display: grid;
 	grid-template-columns: auto auto auto;
-	width: 100px;
+	grid-row-gap: 15px;
+	width: 20%;
 }
 
 .arrow4div > button {
-	width: 30px;
-	height: 30px;
+	width: 50px;
+	height: 50px;
 	font-size: 30px;
 }
 
@@ -504,4 +514,36 @@ button {
 .button2Div > button {
 	width: 230px;
 	height: 100px;
+}
+
+#MapDiv {
+	margin: auto;
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	grid-template-rows: auto auto auto auto;
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;
+	padding: 5px;
+	background-color: black;
+	margin-top: 0px;
+}
+
+#MapDiv img {
+	border: 1px solid black;
+}
+
+#MapDiv .activeMapImage {
+	border: 1px solid yellow;
+}
+
+#MapTitle {
+	width: 70%;
+	border: 5px solid black;
+	margin-bottom: 0px;
+}
+
+.MapOuterDiv {
+	background-color: black;
+	width: 70%;
+	margin: auto;
 }

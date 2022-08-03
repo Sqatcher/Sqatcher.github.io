@@ -14,6 +14,12 @@
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
+
+		window.onload = function() {
+			var fireSoundrack = document.createElement("audio");
+			fireSoundrack.setAttribute('src', "Soundtrack/lava_background.mp3");
+			fireSoundrack.play();
+		};
 	</script>
 </head>
 <body>
@@ -24,9 +30,17 @@
 		<div id="ReturnButtonDiv">
 			<button class="button-5" onclick="mainHall()">Powrót</button>
 		</div>
-		<h1 id="welcome-p">Pieczara Ognia</h1>
-		<h3 class="narrate"></h3>
-		<br>
+		<h1 id="welcome-p" class="miejsce-F">Pieczara Ognia</h1>
+		<h3 class="narrate">
+			Wchodzisz do portalu "Pieczary Ognia" i od razu uderza cię ciepło niczym z ukropu. Powietrze staje się suche, tempertura nieustannie rośnie,
+			przez co zaczyna ci się kręcić w głowie i zdaje się, że odpływasz na moment. Gdy otwierasz ponownie oczy, świat wokół ciebie uległ drastycznym przemianom.
+			Dostrzegasz czarne góry, po których spływa lawa, całe niebo zaś jest przyciemnione niczym przykryte szarym pyłem. Słońce ledwo się przezeń przedziera, ale 
+			wystarczy to, aby mieć dobrą widoczność. Oglądając krajobraz, dostrzegasz jakiś nietypowy kształt na jednej ze skał nieopodal. Decydujesz się podejść zobaczyć 
+			co to takiego, lecz gdy jesteś już blisko, kształt zaczyna szybko i niewyraźnie coś mówić. Dziwi cię, że jesteś w stanie coś zrozumieć, ale powoli wychwytujesz kolejne słowa
+			takie jak: "pierścień", "plecak", "oko" oraz "zniszczyć". Tak, to ostatnie powtarza się najwięcej razy. Gdy kształt kończy swoją przemowę, nagle wstaje i zaczyna 
+			biec wprost przed siebie. Widzisz jednak, że coś zostało na jego miejscu. Tym razem, podchodzisz wprost do tego kształtu.
+		</h3>
+		<button class="button-5" onclick="window.location.href='FireStart.html'">OK !</button>
 	</div>
 </body>
 </html>

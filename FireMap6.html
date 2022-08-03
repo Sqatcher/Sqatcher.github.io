@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<style>
+		body {
+			background-color: rgb(190, 14, 14);
+		}
+	</style>
+	<script>
+		function mainHall() {
+			window.location.href = "The_Main_Hall.html";
+		}
+
+		function setMap() {
+			for (let i=0; i<17; i++)
+			{
+				if(sessionStorage.getItem("FireMap" + i) == 1)
+				{
+					document.getElementById("MapImg"+i).src = "FireImg/Map"+i+".png";
+				}
+			}
+		}
+
+		window.onload = function() {
+			sessionStorage.setItem("FireMap2", 1);
+			sessionStorage.setItem("FireMap6", 1);
+			sessionStorage.setItem("FireMap10", 1);
+			setMap();
+		};
+
+		function clickArrow(arrow)
+		{
+			if (arrow == 0)
+			{
+				document.getElementById("MapDontWalk").textContent = "Nie tędy droga.";
+				return;
+			}
+			window.location.href = "FireMap" + arrow + ".html";
+		}
+	</script>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<div id="ReturnButtonDiv">
+			<button class="button-5" onclick="mainHall()">Powrót</button>
+		</div>
+		<h1 id="welcome-p" class="miejsce-F">Pieczara Ognia</h1>
+		<div class="MapOuterDiv">
+			<img id="MapTitle" src="FireImg/Orodruin.png">
+			<div id="MapDiv">
+				<img id="MapImg1" src="FireImg/MapUnknown.png">
+				<img id="MapImg2" src="FireImg/MapUnknown.png">
+				<img id="MapImg3" src="FireImg/MapUnknown.png">
+				<img id="MapImg4" src="FireImg/MapUnknown.png">
+				<img id="MapImg5"  src="FireImg/MapUnknown.png">
+				<img id="MapImg6" class="activeMapImage" src="FireImg/MapUnknown.png">
+				<img id="MapImg7" src="FireImg/MapUnknown.png">
+				<img id="MapImg8" src="FireImg/MapUnknown.png">
+				<img id="MapImg9" src="FireImg/MapUnknown.png">
+				<img id="MapImg10" src="FireImg/MapUnknown.png">
+				<img id="MapImg11" src="FireImg/MapUnknown.png">
+				<img id="MapImg12" src="FireImg/MapUnknown.png">
+				<img id="MapImg13" src="FireImg/MapUnknown.png">
+				<img id="MapImg14" src="FireImg/MapUnknown.png">
+				<img id="MapImg15" src="FireImg/Map15.png">
+				<img id="MapImg16" src="FireImg/MapUnknown.png">
+			</div>
+		</div>
+		<br>
+		<div class="arrow4div">
+			<p></p> <button class="button-5" onclick="clickArrow(0)">&#8593</button> <p></p>
+			<button class="button-5" onclick="clickArrow(5)"> &#8592 </button> <p></p> <button class="button-5" onclick="clickArrow(7)"> &#8594</button>
+			<p></p> <button class="button-5" onclick="clickArrow(0)">&#8595</button> <p></p>
+		</div>
+		<h3 id="MapDontWalk" class="narrate"></h3>
+		<h3 class="narrate"></h3>
+	</div>
+</body>
+</html>
