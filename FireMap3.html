@@ -40,6 +40,25 @@
 			}
 			window.location.href = "FireMap" + arrow + ".html";
 		}
+
+		let pillars = [0, 4, 4, 4, 4];
+		let pillarNames = ["", "Green", "Lavender", "Red", "Violet"]
+
+		function pillarControl(p, op) {
+			if (pillars[p] - op > 4 || pillars[p] - op < 1)
+			{
+				return;
+			}
+			pillars[p] -= op;
+			document.getElementById("PillarImg" + p).src = "FireImg/Pillar" + pillars[p] + pillarNames[p] + ".png";
+
+			if (pillars[1] == 2 && pillars[2] == 1 && pillars[3] == 3 && pillars[4] == 4)
+			{
+				document.getElementById("SolutionDiv").style.display = "block";
+			}
+		}
+
+
 	</script>
 </head>
 <body>
@@ -79,7 +98,32 @@
 			<p></p> <button class="button-5" onclick="clickArrow(7)">&#8595</button> <p></p>
 		</div>
 		<h3 id="MapDontWalk" class="narrate"></h3>
-		<h3 class="narrate"></h3>
+		<h3 class="narrate">Błąkając się po ciemnych korytarzach, w końcu docierasz do nieco większej sali. Gdy wchodzisz do niej, widzisz przed sobą potężne wrota. Niestety, są zamkniętę.
+			I nie wygląda na to, żebyś miała siłę je otworzyć siłą. Na szczęście dostrzegasz tuż obok 4 filary, a na nich 4 różne skały. W tej antycznej dotychczas jaskini, dziwi cię 
+			również widok przycisków. Pewnie poprawna kombinacja prowadzi do otwarcia drzwi, tylko.. co to za kombinacja?
+		</h3>
+		<div class="button4div">
+			<img id="PillarImg1" src="FireImg/Pillar4Green.png" alt="obrazek1">
+			<img id="PillarImg2" src="FireImg/Pillar4Lavender.png" alt="obrazek2">
+			<img id="PillarImg3" src="FireImg/Pillar4Red.png" alt="obrazek3">
+			<img id="PillarImg4" src="FireImg/Pillar4Violet.png" alt="obrazek4">
+
+			<button class="button-5" onclick="pillarControl(1, 1)">+</button>
+			<button class="button-5" onclick="pillarControl(2, 1)">+</button>
+			<button class="button-5" onclick="pillarControl(3, 1)">+</button>
+			<button class="button-5" onclick="pillarControl(4, 1)">+</button>
+
+			<button class="button-5" onclick="pillarControl(1, -1)">-</button>
+			<button class="button-5" onclick="pillarControl(2, -1)">-</button>
+			<button class="button-5" onclick="pillarControl(3, -1)">-</button>
+			<button class="button-5" onclick="pillarControl(4, -1)">-</button>
+		</div>
+		<div id="SolutionDiv" style="display: none;">
+			<h3 class="narrate">
+				Czy to łud szczęścia, czy może czyste umiejętności - to bez znaczenia. Wrota zaczynają się otwierać!
+			</h3>
+			<button class="button-5" onclick="window.location.href='FireFinal.html'">Naprzód, zniszczyć Pierścień!</button>
+		</div>
 	</div>
 </body>
 </html>

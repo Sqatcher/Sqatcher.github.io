@@ -29,7 +29,7 @@
 		function showFireFrag() {
 			if (fireKey == 1)
 			{
-				var rockDiv = document.getElementById("FireFragDiv");
+				var fireDiv = document.getElementById("FireFragDiv");
 				if (fireDiv.style.display == "none")
 				{
 					fireDiv.style.display = "grid";
@@ -96,7 +96,7 @@
 
 		function checkPassword(){
 			passObject = document.getElementById("maslo");
-			if (passObject.value == "Maslo")
+			if (passObject.value == "OtoHasLoKlucz!")
 			{
 				document.getElementById("GoodAnswer").style.display = "block";
 				document.getElementById("BadAnswer").style.display = "none";
@@ -153,34 +153,34 @@
 		<br>
 		<div id="KeyLookUpDiv">
 			<div id="FireFragDiv" class="FragKeyLookUpDiv" style="display: none">
-				<h3>1</h3>
-				<h3>treść</h3>
-				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
+				<p>3</p>
+				<p>asL</p>
+				<p class="descriptionP">Kolejność: 2314</p>
 			</div>
 			<div id="FireFragPlaceHolder" style="width:400px; height: 330px"></div>
 			<div id="WoodFragDiv" class="FragKeyLookUpDiv" style="display: none">
 				<p>2</p>
-				<p>treść</p>
-				<p>Klucze to tak naprawdę fragmenty tekstu</p>
+				<p>OtoH</p>
+				<p class="descriptionP">Aby klucze ułożyły całość, należy je ustawić w odpowiedniej kolejności</p>
 			</div>
 			<div id="WoodFragPlaceHolder" style="height: 330px"></div>
 			<div id="WaterFragDiv" class="FragKeyLookUpDiv" style="display: none">
-				<p>2</p>
-				<p>treść</p>
-				<p>Klucze to tak naprawdę fragmenty tekstu</p>
+				<p>4</p>
+				<p>cz!</p>
+				<p class="descriptionP">Wielkie litery i znaki specjalne mają znaczenie</p>
 			</div>
 			<div id="WaterFragPlaceHolder" style="width:400px; height: 330px"></div>
 			<div id="RockFragDiv" class="FragKeyLookUpDiv" style="display: none">			
-				<h3>1</h3>
-				<h3>treść</h3>
-				<h3>Klucze to tak naprawdę fragmenty tekstu</h3>
+				<p>1</p>
+				<p>oKlu</p>
+				<p class="descriptionP">Klucze to tak naprawdę fragmenty tekstu</p>
 			</div>
 			<div id="RockFragPlaceHolder" style="width:400px; height: 330px"></div>
 		</div>
 		<br><br><br><br>
 		<h1>Czy masz już klucz?</h1>
 		<div id="InputButtonDiv">
-			<input type="text" id="maslo" style="font-size: 24px; width: 150px;">
+			<input type="text" id="maslo" style="font-size: 24px; width: 200px;">
 			<button class="button-5" onclick="checkPassword()" style="width: 100px">Sprawdź</button>
 		</div>
 		<div>

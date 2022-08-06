@@ -435,7 +435,7 @@ button {
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	width: 90%;
+	width: 95%;
 	height: 350px;
 	background-color: darkmagenta;
 	color: whitesmoke;
@@ -449,10 +449,12 @@ button {
 .FragKeyLookUpDiv > p {	
 	background-color: #dddddd;
 	color: black;
-	width: 90%;
+	width: 80%;
 	margin: auto;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 #RockFragDiv {

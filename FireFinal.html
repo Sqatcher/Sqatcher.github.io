@@ -7,20 +7,19 @@
 	<link rel="icon" href="ManiacyGier.jpg">
 	<style>
 		body {
-			background-color: rgb(26, 85, 17);
+			background-color: rgb(190, 14, 14);
 		}
 	</style>
 	<script>
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
-		
+
 		function takeKey() {
 			document.getElementById("TakeKeyDiv").style.display = "block";
 			document.getElementById("ForwardButton").style.display = "block";
-			sessionStorage.setItem("WoodKey", 1);
+			sessionStorage.setItem("FireKey", 1);
 		}
-
 	</script>
 </head>
 <body>
@@ -31,14 +30,13 @@
 		<div id="ReturnButtonDiv">
 			<button class="button-5" onclick="mainHall()">Powrót</button>
 		</div>
-		<h1 id="welcome-p" class="miejsce-W">Furtka Leśna</h1>
-		<br>
+		<h1 id="welcome-p" class="miejsce-F">Pieczara Ognia</h1>
 		<h3 class="narrate">
-			J4R-V15 trzyma fragment klucza w jednej ze swoich łapek. Cały ten czas miał go przy sobie! Może następnym razem łatwiej będzie rozłożyć kolejnego takiego robota na części 
-			pierwsze... No ale dobrze, osiągnęłaś cel, teraz wystarczy tylko po niego sięgnąć.
+			Po trawersowaniu jej przewodów wewnętrznych, w końcu dochodzisz do serca tej Pieczary. Wchodząc do środka, zaczynasz czuć nieprzyjemne ciepło suchego powietrza.
+			Twoim oczom ukazuje się ziejąca przepaść prowadząca wprost do morza lawy. Tak, jedyną siłą, która morze zniszczyć ten pierścień i uwolnić fragment klucza od niego jest 
+			ta sama siła, która go stworzyła. Porzucając ostatnie wątpliwości, dokonujesz tego, co trzeba.
 		</h3>
-
-		<button class="button-5" onclick="takeKey()">Sięgnij</button>
+		<button class="button-5" onclick="takeKey()">Wrzuć Pierścień</button>
 
 		<div id="TakeKeyDiv">
 			<h3 class="narrate">
@@ -48,18 +46,17 @@
 				<h3>
 					<i>Numer klucza: </i>
 				</h3>
-				<h3>2</h3>
+				<h3>3</h3>
 				<h3>
 					<i>Treść klucza: </i>
 				</h3>
-				<h3>OtoH</h3>
+				<h3>asL</h3>
 				<h3>
 					<i>Wskazówka: </i>
 				</h3>
-				<h3>Aby klucze ułożyły całość, należy je ustawić w odpowiedniej kolejności</h3>
+				<h3>Kolejność: 2314</h3>
 			</div>
 		</div>
-		
 		<button id="ForwardButton" class="button-5" style="display: none; width: 250px;" onclick="mainHall()">Wracamy do domu</button>
 	</div>
 </body>
