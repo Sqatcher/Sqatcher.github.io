@@ -16,22 +16,6 @@
 			window.location.href = "The_Main_Hall.html";
 		}
 
-		function checkPassword(){
-			passObject = document.getElementById("lastA");
-			answer = passObject.value;
-			if (answer.toLowerCase() == "lemat")
-			{
-				document.getElementById("GoodAnswer").style.display = "block";
-				document.getElementById("BadAnswer").style.display = "none";
-				document.getElementById("LastHallButton").style.display = "block";
-			}
-			else
-			{
-				document.getElementById("GoodAnswer").style.display = "none";
-				document.getElementById("BadAnswer").style.display = "block";
-				document.getElementById("LastHallButton").style.display = "none";
-			}
-		}
 	</script>
 </head>
 <body>
@@ -43,18 +27,17 @@
 			<button class="button-5" onclick="mainHall()">Powrót</button>
 		</div>
 		<h1 id="welcome-p">Skarbiec</h1>
-		<h3 class="narrate"></h3>
+		<h3 class="narrate">Łączysz wszystkie fragmenty w całość, wkładasz klucz na miejsce i.. o to jesteś. Cała sala pełna skarbów stoi przed tobą otworem.
+			Rozpoczynasz rozpoznawczy spacer, aby zapoznać się z zawartością tej sali, ale od początku masz wrażenie, że wiesz czego szukasz. Wśród mnogich skarbów,
+			starożytnych artefaktów i drogich skinów szukasz czegoś jeszcze innego. W końcu docierasz do jednego z rogów sali. To właśnie tam, chroniony przed 
+			światem zewnętrznym znajduje się cel twojej wizyty:
+		</h3>
 		<br>
-		<img id="lastQ" src="LastQ.png"/>
-		<div id="InputButtonDiv">
-			<input type="text" id="lastA">
-			<button class="button-5" onclick="checkPassword()">Sprawdź</button>
-		</div>
-		<div>
-			<h3 id="BadAnswer">Niestety, odpowiedź jest inna</h3>
-			<h3 id="GoodAnswer">Wow! Masz to!</h3>
-		</div>
-		<button class="button-5" id="LastHallButton" onclick="window.location.href='NigdyNieZgadniesz.html'">Naprzód!</button>
+		<img src="Laurka.png" alt="laurka">
+		<br><br><br><br>
+		<h3 class="narrate">Za każdym razem, gdy na to patrzysz, coś innego przykuwa twoją uwagę. Zaiste, dzieło sztuki jakich mało. Jednak nieopodal zauważasz jeszcze jedną
+			 skrzynkę z jednym kodem. Po co zabezpieczać coś, co już jest w skarbcu?</h3>
+		<button class="button-5" onclick="window.location.href='The_Treasure_Hoard_Bonus.html'">Bonus</button>
 	</div>
 </body>
 </html>
