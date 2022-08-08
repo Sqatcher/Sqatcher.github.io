@@ -28,6 +28,13 @@
 		window.onload = function() {
 			sessionStorage.setItem("FireMap5", 1);
 			setMap();
+
+			if(sessionStorage.getItem("Hammer") == 2)
+			{
+				document.getElementById("HammerButton").onclick = clickArrow1;
+				document.getElementById("HammerFirstDiv").style.display = "none";
+				document.getElementById("DestroyedP").style.display = "block";
+			}
 		};
 
 		function clickArrow(arrow)
@@ -38,6 +45,38 @@
 				return;
 			}
 			window.location.href = "FireMap" + arrow + ".html";
+		}
+
+		function clickArrow1() {
+			clickArrow(1);
+		}
+
+		function checkHammer() {
+			let hammer = sessionStorage.getItem("Hammer");
+			if (hammer)
+			{
+				document.getElementById("BadAnswer").style.display = "none";
+				document.getElementById("GoodHammer").style.display = "block";
+			}
+			else
+			{
+				document.getElementById("BadAnswer").style.display = "block";
+				document.getElementById("GoodHammer").style.display = "none";
+			}
+		}
+
+		function noClick() {
+			document.getElementById("NoAnswer").style.display = "block";
+			yesClick();
+		}
+
+
+		function yesClick() {
+			document.getElementById("LightItUp").style.display = "block";
+			document.getElementById("B1").onclick = "";
+			document.getElementById("B2").onclick = "";
+			document.getElementById("HammerButton").onclick = clickArrow1;
+			sessionStorage.setItem("Hammer", 2);
 		}
 	</script>
 </head>
@@ -73,12 +112,43 @@
 		</div>
 		<br>
 		<div class="arrow4div">
-			<p></p> <button class="button-5" onclick="clickArrow(1)">&#8593</button> <p></p>
+			<p></p> <button id="HammerButton" class="button-5" onclick="clickArrow(0)">&#8593</button> <p></p>
 			<button class="button-5" onclick="clickArrow(0)"> &#8592 </button> <p></p> <button class="button-5" onclick="clickArrow(6)"> &#8594</button>
 			<p></p> <button class="button-5" onclick="clickArrow(9)">&#8595</button> <p></p>
 		</div>
 		<h3 id="MapDontWalk" class="narrate"></h3>
-		<h3 class="narrate"></h3>
+		<h3 id="DestroyedP" class="narrate" style="display: none">Tu kiedyś stał drewniany mur.. dopóki nie został doszczętnie spalony :)</h3>
+		<div id="HammerFirstDiv">
+			<h3 class="narrate">Idziesz jak zwykle korytarzem i nagle.. mur. Drewniany mur. W środku jaskini. Sięga aż po sam sufit i zajmuje całą szerokość tunelu.
+				Nie ma opcji, żeby go przeskoczyć, obejść albo go wypchnąć. Trzeba go zniszczyć. Nikt przecież nie postawiłby muru, gdyby nie prowadził do nigdzie. 
+				Jak tylko możnaby to zrobić?
+			</h3>
+			<h3 class="narrate">Po chwili namysłu masz już pomysł. Potrzebny będzie ci młotek.</h3>
+			<button class="button-5" onclick="checkHammer()">Mam młotek!</button>
+		</div>
+		<div id="GoodHammer" style="display: none">
+			<h3 class="narrate">
+				Ok, ok, pamiętasz tę sprytną lampkę, którą nadal masz? Jakoś musi ona dawać światło. Jakoś ze <i>środka</i>. A jeżeli coś w środku 
+			jest w stanie rozpalić ciemną jaskinię, to z pewnością będzie też w stanie rozpalić drewniany mur. Niestety, od tej akcji nie ma odwrotu. Od tego momentu będziesz
+			musiała chodzić po ciemku. Czy jesteś na to gotowa?
+			</h3>
+			<div id="Button2Div">
+				<button id="B1" class="button-5" onclick="yesClick()">Tak</button>
+				<button id="B2" class="button-5" onclick="noClick()">Nie</button>
+			</div>
+			<h3 id="NoAnswer" class="narrate" style="display: none">E tam, to nie czas na bycie miętkim. Lecimy!</h3>
+			<div id="LightItUp" style="display: none">
+				<h3 class="narrate">Uderzasz młotkiem w sprytną lampkę, ale ona nie daje broni się całym swoim jestestwem. Uderzasz więc drugi raz, mocniej.
+					I trzeci. I czwarty, i piąty, i... KRACH!! WOOOOSHHH!! BUUUM! ! Sprytna lampka wybucha z niesamowitą energią, która powala cię na ziemię.
+					Gdy leżysz na ziemi, ostatnim rzutem oka zanim odpłyniesz dostrzgasz jakby ognistego ptaka powstającego z nie-tak-sprytnej-już lampki...
+				</h3>
+				<h3 class="narrate">Gdy wraca ci przytomność, w jaskini jest ciemno i nie widać ani śladu po lampce lub jakichkolwiek płomieniach. Sprawdzasz
+					czy reszta ekwipunku jest przy Tobie i wszystko zdaje się być na swoim miejscu. Spoglądasz też na mapę i tak, ona również jest w całości
+					wraz z całą swoją zapisaną zawartością. Gdy podchodzisz do miejsca, gdzie powinien stać mur, czujesz pustkę. W końcu jesteś w stanie przejść dalej.
+				</h3>
+			</div>
+		</div>
+		<h3 id="BadAnswer">Nie, wcale nie masz.</h3>
 	</div>
 </body>
 </html>

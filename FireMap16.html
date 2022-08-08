@@ -29,6 +29,11 @@
 			sessionStorage.setItem("FireMap16", 1);
 			sessionStorage.setItem("FireMap12", 1);
 			setMap();
+
+			if(sessionStorage.getItem("Hammer") > 0)
+			{
+				document.getElementById("HammerFirstTime").style.display = "none";
+			}
 		};
 
 		function clickArrow(arrow)
@@ -39,6 +44,11 @@
 				return;
 			}
 			window.location.href = "FireMap" + arrow + ".html";
+		}
+
+		function pickUpHammer() {
+			sessionStorage.setItem("Hammer", 1);
+			document.getElementById("HammerDiv").style.display = "block";
 		}
 	</script>
 </head>
@@ -79,7 +89,20 @@
 			<p></p> <button class="button-5" onclick="clickArrow(0)">&#8595</button> <p></p>
 		</div>
 		<h3 id="MapDontWalk" class="narrate"></h3>
-		<h3 class="narrate">Tuż przy samym wejściu do jaskini znajduje się ten podejrzany pokój. </h3>
+		<h3 class="narrate">
+			Tuż przy samym wejściu do jaskini znajduje się ten podejrzany pokój. Zaraz na samym początku, zaczyna się w zasadzie nigdzie i prowadzi.. 
+			do nikąd. Od razu przysłaniają go 3 ściany. Czy taki pokój może istnieć bez celu. Decydujesz się na jego dokładniejszy ogląd. Wyostrzasz wzrok do tego
+			stopnia, że zaczynają boleć cię oczy, ale wysiłek się opłaca - znajdujesz pewnego rodzaju obrazek!
+		</h3>
+		<img class="fireHintImg" src="FireImg/Hint1.png" alt="podpowiedź1">
+		<h3 class="narrate">Nie jesteś pewna, czy w ogóle się przyda, ale na wszelki wypadek zaznaczasz jego lokalizację na mapie.</h3>
+		<div id="HammerFirstTime">
+			<h3 class="narrate">Nic innego nie dostrzegasz, więc zbierasz się już do wyjścia, ale lekko potykasz się o mały przedmiot. To młotek!</h3>
+			<button id="HammerButton" class="button-5" onclick="pickUpHammer()">Podnieś młotek</button>
+			<div id="HammerDiv" style="display: none">
+				<h3 class="narrate">Podniosłaś młotek. Od razu czujesz się lepiej!</h3>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
