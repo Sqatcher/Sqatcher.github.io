@@ -41,7 +41,7 @@
 			window.location.href = "FireMap" + arrow + ".html";
 		}
 
-		let pillars = [0, 4, 4, 4, 4];
+		let pillars = [0, 2, 2, 2, 2];
 		let pillarNames = ["", "Green", "Lavender", "Red", "Violet"]
 
 		function pillarControl(p, op) {
@@ -52,7 +52,7 @@
 			pillars[p] -= op;
 			document.getElementById("PillarImg" + p).src = "FireImg/Pillar" + pillars[p] + pillarNames[p] + ".png";
 
-			if (pillars[1] == 2 && pillars[2] == 1 && pillars[3] == 3 && pillars[4] == 4)
+			if (pillars[1] == 2 && pillars[2] == 1 && ((pillars[3] == 3 && pillars[4] == 3) || (pillars[3] == 4 && pillars[4] == 4)))
 			{
 				document.getElementById("SolutionDiv").style.display = "block";
 			}
@@ -103,10 +103,10 @@
 			również widok przycisków. Pewnie poprawna kombinacja prowadzi do otwarcia drzwi, tylko.. co to za kombinacja?
 		</h3>
 		<div class="button4div">
-			<img id="PillarImg1" src="FireImg/Pillar4Green.png" alt="obrazek1">
-			<img id="PillarImg2" src="FireImg/Pillar4Lavender.png" alt="obrazek2">
-			<img id="PillarImg3" src="FireImg/Pillar4Red.png" alt="obrazek3">
-			<img id="PillarImg4" src="FireImg/Pillar4Violet.png" alt="obrazek4">
+			<img id="PillarImg1" src="FireImg/Pillar2Green.png" alt="obrazek1">
+			<img id="PillarImg2" src="FireImg/Pillar2Lavender.png" alt="obrazek2">
+			<img id="PillarImg3" src="FireImg/Pillar2Red.png" alt="obrazek3">
+			<img id="PillarImg4" src="FireImg/Pillar2Violet.png" alt="obrazek4">
 
 			<button class="button-5" onclick="pillarControl(1, 1)">+</button>
 			<button class="button-5" onclick="pillarControl(2, 1)">+</button>
