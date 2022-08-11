@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8"> 
+	<title>Skarbiec Maniaków Gier</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="ManiacyGier.jpg">
+	<style>
+		body {
+			background-color: rgb(21, 40, 161);
+		}
+	</style>
+	<script>
+		function mainHall() {
+			window.location.href = "The_Main_Hall.html";
+		}
+	</script>
+</head>
+<body>
+	<div class="middle-div">
+		<img id="Logo" src="ManiacyGier.jpg" alt="upsi">
+	</div>
+	<div class="middle-div" id="MainDiv">
+		<div id="ReturnButtonDiv">
+			<button class="button-5" onclick="mainHall()">Powrót</button>
+		</div>
+		<h1 id="welcome-p" class="miejsce-Water">Wir Wodny</h1>
+		<h3 class="narrate">
+			Mrok spowija korytarze, którymi się przemieszczasz. Blade lampki od czasu do czasu rzucają odrobinę światła, lecz poza tym - ciemność. W końcu dochodzisz do 
+			komputera głównego zajmującego się obsługą filtrów. Tuż obok znajduje się wnęka, gdzie przechowywany jest filtr. Gdy prowadzisz tam swój wzrok, nagle zaczynasz czuć 
+			lekkie mrowienie. Czy to możliwe? Fragment klucza znajduje się właśnie tu? Może to jego obecność sprawiła, że flitr przestaje działać. Gdy zastanawiasz się nad możliwymi 
+			konsekwencjami i skutkami swoich odkryć, dostrzegasz coś jeszcze. Na ścianie, tuz obok filtru znajduje się znak. Mówi on o tym, by w razie gdyby filtr przestał działać i trzebaby 
+			go wymienić, należy udać się do pomieszczenia, do którego prowadzi zmyślna mapka. Hmm, skoro filtry przetrzymywane są w tym budynku, to po co ludzie dawaliby ci filtr ze sobą. 
+			Spoglądasz na podarunek, który zebrałaś ze sobą i zauważasz, że miga on na czerwono. I to, zdaje się, miga coraz szybciej. Gdy zaglądasz do filtru wstawionego na miejsce widzisz, że 
+			te dwa przedmioty znacznie różnią się od siebie. Czy to możliwe, że zostałaś zrobiona w bambuko? Zamiast wejść i wymienić filtr, włamałaś się, aby podsadzić bombę!
+		</h3>
+		<br>
+		<h3 class="narrate">
+			Ok, ok, nie ma powodu do paniki. Wszystko jest pod kontrolą. Starając się myśleć na chłodno dochodzisz do wniosku, że w filtrze musi znajdować się fragment klucza. Oznacza to, że ty
+			sama jesteś względnie bezpieczna. W razie kłopotów zawsze możesz zabrać fragment i zabierać siebie stąd jak najszybciej. Pytanie tylko co z bombą. Skoro ktoś zaplanował cały 
+			ten przekręt i to w środku miasta, to może oznacza to, że jego władca wcale nie jest taki dobry jak by się wydawało i należy mu się nauczka. Może chcą wykorzystać bombę, żeby 
+			tylko go nastraszyć? Z drugiej strony, co jeżeli ona rzeczywiście wybuchnie i zginie przez to cała populacja tego miasta? Nigdy tu zapewne nie wrócisz i nie masz nadal pewności
+			czy to nie jest tylko jakiś sen, ale musisz dokonać wyboru. Gdy zabierzesz fragment klucza, filtr prawdopodobnie ulegnie uszkodzeniu. Czy w jego miejsce chcesz wstawić bombę, którą
+			masz pod ręką, czy wolisz przejść się po nowe filtry, które powinny uchronić miasto?
+		</h3>
+		<div id="Button2Div">
+			<button id="B1" class="button-5" onclick="oneClick()" style="width:200px; height: 100px;">Wstaw bombę</button>
+			<button id="B2" class="button-5" onclick="twoClick()" style="width:200px; height: 100px;">Przejdź się po filtr</button>
+		</div>
+		
+	</div>
+</body>
+</html>
