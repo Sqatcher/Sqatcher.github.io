@@ -14,6 +14,54 @@
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
+
+		function swapFilter() {
+			document.getElementById("B2").onclick = "";
+			document.getElementById("B2").style.marginLeft = "375px";
+			document.getElementById("B1").style.display = "none";
+			document.getElementById("FilterDiv").style.display = "block";
+		}
+
+		function zlaPostac(name) {
+			let p = document.getElementById("BadAnswer");
+			p.style.display = "block";
+			p.textContent = "Niestety, nie jest to " + name +".";
+		}
+
+		let answer = [0,0,0,1, 0,1,1,1];
+		let fruits = [0,0,0,0, 0,0,0,0];
+		let fruitNames = ["Avocado", "Cherries", "Coconut", "Kiwi", "Lemon", "Orange", "Pear", "Raspberry"];
+
+		function setActiveFruit(fruit) {
+			if(fruits[fruit] == 0)
+			{
+				fruits[fruit] = 1;
+				document.getElementById("FruitImg" + fruit).src = "WaterImg/" + fruitNames[fruit] + "2.png";
+			}
+			else
+			{
+				fruits[fruit] = 0;
+				document.getElementById("FruitImg" + fruit).src = "WaterImg/" + fruitNames[fruit] + ".png";
+			}
+			checkPassword();
+		}
+
+		function checkPassword() {
+			let i = 0;
+			for (i=0; i<8; i++)
+			{
+				if(fruits[i] != answer[i])
+				{
+					break;
+				}
+			}
+			if (i==8)
+			{
+				document.getElementById("FinalFilterDiv").style.display = "block";
+			}
+		}
+
+
 	</script>
 </head>
 <body>
@@ -44,10 +92,43 @@
 			masz pod ręką, czy wolisz przejść się po nowe filtry, które powinny uchronić miasto?
 		</h3>
 		<div id="Button2Div">
-			<button id="B1" class="button-5" onclick="oneClick()" style="width:200px; height: 100px;">Wstaw bombę</button>
-			<button id="B2" class="button-5" onclick="twoClick()" style="width:200px; height: 100px;">Przejdź się po filtr</button>
+			<button id="B1" class="button-5" onclick="window.location.href='WaterFinal1.html'" style="width:200px; height: 100px;">Wstaw bombę</button>
+			<button id="B2" class="button-5" onclick="swapFilter()" style="width:200px; height: 100px;">Przejdź się po filtr</button>
 		</div>
-		
+		<div id="FilterDiv" style="display: none">
+			<h3 class="narrate">Nie ma co ryzykować. Zbyt wiele żyć (potencjalnie wyimaginowanych) może od tego zależeć. Rzucasz jeszcze raz okiem na bombę i twoje przypuszczenia 
+				zdają się potwierdzać - bomba miga coraz szybciej, co znaczy, że niedługo wybuchnie. Nie masz jednak pojęcia ile czasu ci zostało, jednak starasz się nie guzdrać za bardzo. 
+				Wybierasz się po nowy filtr, jednak	aby trafić w odpowiednie miejsce musisz skorzystać ze wskazówki umieszczonej w tym rysunkowym labiryncie. Za którymi owocami masz podążać?
+			</h3>
+			<img class="waterQuestionImg" src="WaterImg/Maze1.jpg" alt="labirynt1">
+			<div class="answer4div">
+				<img id="FruitImg0" class="fruitImg" onclick="setActiveFruit(0)" src="WaterImg/Avocado.png" alt="owoc1">
+				<img id="FruitImg1" class="fruitImg" onclick="setActiveFruit(1)" src="WaterImg/Cherries.png" alt="owoc2">
+				<img id="FruitImg2" class="fruitImg" onclick="setActiveFruit(2)" src="WaterImg/Coconut.png" alt="owoc3">
+				<img id="FruitImg3" class="fruitImg" onclick="setActiveFruit(3)" src="WaterImg/Kiwi.png" alt="owoc4">
+
+				<img id="FruitImg4" class="fruitImg" onclick="setActiveFruit(4)" src="WaterImg/Lemon.png" alt="owoc5">
+				<img id="FruitImg5" class="fruitImg" onclick="setActiveFruit(5)" src="WaterImg/Orange.png" alt="owoc6">
+				<img id="FruitImg6" class="fruitImg" onclick="setActiveFruit(6)" src="WaterImg/Pear.png" alt="owoc7">
+				<img id="FruitImg7" class="fruitImg" onclick="setActiveFruit(7)" src="WaterImg/Raspberry.png" alt="owoc8">
+			</div>
+
+
+			<div id="FinalFilterDiv" style="display: none">
+				<h3 class="narrate">Dobra, wiesz już którą ścieżką podążać, zatem bez problemu pokonujesz korytarze. Serce bije ci coraz mocniej i ciężko powiedzieć czy z wrażenia, czy może 
+					z niecodziennego wysiłku jaki wiąże się z ratowaniem wielkiego miasta. Gdy dochodzisz do ostatniego z owoców, które cię prowadzą, już jesteś w stanie dojrzeć światło pochodzące 
+					z magazynu filtrów. Ale co to. Jeszcze jeden labirynt? Próbujesz zignorować te naścienne malowidło i wedrzeć się do środka, jednak drzwi nie dają za wygraną. W końcu przyznajesz, 
+					że zapewne ten labirynt stanowi klucz do otwarcia tych drzwi. No dobrze, zatem - który z bohaterów potrzebuje okularów?
+				</h3>
+				<img class="waterQuestionImg" src="WaterImg/Maze2.jpg" alt="labirynt2">
+				<div class="button3div">
+					<button class="button-5" onclick="zlaPostac('Biedronka')">Biedronka</button>
+					<button class="button-5" onclick="window.location.href='WaterFinal2.html'">Elf</button>
+					<button class="button-5" onclick="zlaPostac('Kret')">Kret</button>
+				</div>
+				<h3 id="BadAnswer" class="narrate"></h3>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

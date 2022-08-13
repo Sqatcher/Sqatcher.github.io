@@ -61,7 +61,7 @@
 		}
 
 		function showWaterFrag() {
-			if (waterKey == 1)
+			if (waterKey >= 1)
 			{
 				var waterDiv = document.getElementById("WaterFragDiv");
 				if (waterDiv.style.display == "none")
@@ -73,6 +73,13 @@
 				{
 					waterDiv.style.display = "none";
 					document.getElementById("WaterFragPlaceHolder").style.display = "block";
+				}
+				if (waterKey == 2)
+				{
+					waterDiv.style.backgroundColor = "pink";
+					waterDiv.style.backgroundImage = "url('BloodInTheWater.png')"
+					waterDiv.style.backgroundSize = "100% 100%";
+					waterDiv.style.backgroundRepeat = "no-repeat";
 				}
 			}
 		}

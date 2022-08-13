@@ -52,7 +52,7 @@
 			pillars[p] -= op;
 			document.getElementById("PillarImg" + p).src = "FireImg/Pillar" + pillars[p] + pillarNames[p] + ".png";
 
-			if (pillars[1] == 2 && pillars[2] == 1 && ((pillars[3] == 3 && pillars[4] == 3) || (pillars[3] == 4 && pillars[4] == 4)))
+			if ((pillars[1] == 2 && pillars[2] == 1 && pillars[3] == 3 && pillars[4] == 3) || (pillars[1] == 3 && pillars[2] == 2 && pillars[3] == 4 && pillars[4] == 4))
 			{
 				document.getElementById("SolutionDiv").style.display = "block";
 			}

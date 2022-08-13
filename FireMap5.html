@@ -53,7 +53,7 @@
 
 		function checkHammer() {
 			let hammer = sessionStorage.getItem("Hammer");
-			if (hammer)
+			if (hammer > 0)
 			{
 				document.getElementById("BadAnswer").style.display = "none";
 				document.getElementById("GoodHammer").style.display = "block";

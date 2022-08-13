@@ -14,6 +14,80 @@
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
+
+		let LEN = 5;
+		let letterIndex = [1,4,4,0, 2,4,1, 0,1,4,3,0];
+		let letters = [
+			['l','m','n','o','p'],
+			['n','o','p','q','r'],
+			['v','w','x','y','z'],
+			['b','c','d','e','f'],
+
+			['p','q','r','s','t'],
+			['a','b','c', 'd', 'e'],
+			['a', 'b','c','d','e'],
+
+			['a', 'b', 'c', 'd', 'e'],
+			['r', 's', 't', 'u', 'v'],
+			['c', 'd', 'e', 'f', 'g'],
+			['d', 'e', 'f', 'g', 'h'],
+			['h', 'i', 'j', 'k', 'l']
+		];
+
+
+		function moveLetter(offset, button, number) {
+			let i = letterIndex[number] - offset;
+			i = (i+LEN)%LEN;
+			letterIndex[number] = i;
+			document.getElementById(button).textContent = letters[number][i];
+			checkPassword(number);
+		}
+
+		function checkPassword(number) {
+			if (number < 4)
+			{
+				let table = ['a', 'a', 'a', 'a'];
+				table[0] = document.getElementById("Q1H2").textContent;
+				table[1] = document.getElementById("Q2H2").textContent;
+				table[2] = document.getElementById("Q3H2").textContent;
+				table[3] = document.getElementById("Q4H2").textContent;
+				if (table[0] == 'n' && table[1] == 'o' && table[2] == 'w' && table[3] == 'e')
+				{
+					document.getElementById("WaterTextQ2").style.display = "block";
+				}
+				return;
+			}
+
+			if (number < 7)
+			{
+				let table = ['a', 'a', 'a'];
+				table[0] = document.getElementById("Q5H2").textContent;
+				table[1] = document.getElementById("Q6H2").textContent;
+				table[2] = document.getElementById("Q7H2").textContent;
+				if (table[0] == 's' && table[1] == 'a' && table[2] == 'd')
+				{
+					document.getElementById("WaterTextQ3").style.display = "block";
+				}
+				return;
+			}
+
+			if (number < 12)
+			{
+				let table = ['a', 'a', 'a', 'a', 'a'];
+				table[0] = document.getElementById("Q8H2").textContent;
+				table[1] = document.getElementById("Q9H2").textContent;
+				table[2] = document.getElementById("Q10H2").textContent;
+				table[3] = document.getElementById("Q11H2").textContent;
+				table[4] = document.getElementById("Q12H2").textContent;
+				if (table[0] == 'd' && table[1] == 'u' && table[2] == 'd' && table[3] == 'e' && table[4] == 'k')
+				{
+					document.getElementById("WaterTextAnswer").style.display = "block";
+				}
+				return;
+			}
+
+		}
+
 	</script>
 </head>
 <body>
@@ -34,34 +108,79 @@
 		</h3>
 		<h3 class="narrate">
 			Gdy wchodzisz do śluzy ubrana w swój kombinezon, daje się jeszcze usłyszeć odgłosy miasta gdzieś w tle. Ty jednak starasz się skupić na zadaniu przed tobą. Ubierasz kask 
-			na głowę, podczas gdy śluza zamyka się odcinając cię od miasta. Gdy brama opada na sam dół, zaczynają otwierać się drzwi przed tobą. Woda powoli wlewa się do pomieszczenia,
-			ale ty jesteś skupiona na pięknym widoku na zewnątrz. Wielkie rafy koralowe, ryby małe i duże, a nawet kilka skorupiaków. Wszystko mieni się w blasku słońca, które stara się 
+			na głowę i plecak odrzutowy na plecy, podczas gdy śluza zamyka się odcinając cię od miasta. Gdy brama opada na sam dół, zaczynają otwierać się drzwi przed tobą. Woda powoli wlewa się do
+			pomieszczenia, ale ty jesteś skupiona na pięknym widoku na zewnątrz. Wielkie rafy koralowe, ryby małe i duże, a nawet kilka skorupiaków. Wszystko mieni się w blasku słońca, które stara się 
 			przebić na tę głębokość. Dobra, ale koniec podziwiania, przypominasz sobie. Czas wykonać zadanie. Wiesz dokładnie gdzie masz płynąć i nie sprawia ci to żadnego kłopotu. 
-			Gdy docierasz na miejsce, rzeczywiście widzisz przed sobą pewnego rodzaju konsolę oraz dodatkowe przyciski. No tak, wpisywanie tekstu w kombinezonie nie byłoby łatwym zadaniem
-			dla nikogo. Jaki jednak dokładnie tekst musisz wpisać? To chyba właśnie musisz wymyślić sama. 
+			Silniki zamontowane w plecaku robią całą robotę. Gdy docierasz na miejsce, rzeczywiście widzisz przed sobą pewnego rodzaju konsolę oraz dodatkowe przyciski. No tak, wpisywanie tekstu 
+			w kombinezonie nie byłoby łatwym zadaniem dla nikogo. Jaki jednak dokładnie tekst musisz wpisać? To chyba właśnie musisz wymyślić sama. 
 		</h3>
 		<h3 class="narrate">Na ekranie pojawia się tekst, jednak nie wszystkie literki wyglądają w porządku. Jak z tego tekstu wyciągnąć hasło?</h3>
 		<br>
 		<div id="WaterTextQ1">
 			<img class="questionWaterImg" src="WaterImg/TextQ1.png" alt="pytanie1">
 			<div class="swapLettersQuest">
-				<img onclick="zrobcos()" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
-				<img onclick="zrobcos()" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
-				<img onclick="zrobcos()" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
-				<img onclick="zrobcos()" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q1H2', 0)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q2H2', 1)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q3H2', 2)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q4H2', 3)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
 
-				<h2>A</h2>
-				<h2>A</h2>
-				<h2>A</h2>
-				<h2>A</h2>
+				<h2 id="Q1H2" class="waterTextH2">m</h2>
+				<h2 id="Q2H2" class="waterTextH2">r</h2>
+				<h2 id="Q3H2" class="waterTextH2">z</h2>
+				<h2 id="Q4H2" class="waterTextH2">b</h2>
 
-				<img onclick="zrobcos()" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
-				<img onclick="zrobcos()" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
-				<img onclick="zrobcos()" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
-				<img onclick="zrobcos()" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q1H2', 0)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q2H2', 1)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q3H2', 2)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q4H2', 3)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
 			</div>
 		</div>
-		<button class="button-5" onclick="window.location.href='Water3.html'">Dalej</button>
+		
+		<div id="WaterTextQ2" style="display: none;">
+			<img class="questionWaterImg" src="WaterImg/TextQ2.png" alt="pytanie2">
+			<div class="swapLettersQuest3">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q5H2', 4)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q6H2', 5)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q7H2', 6)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+
+				<h2 id="Q5H2" class="waterTextH2">r</h2>
+				<h2 id="Q6H2" class="waterTextH2">e</h2>
+				<h2 id="Q7H2" class="waterTextH2">b</h2>
+
+				<img class="arrowImg" onclick="moveLetter(1, 'Q5H2', 4)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q6H2', 5)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q7H2', 6)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+			</div>
+		</div>
+
+		<div id="WaterTextQ3" style="display: none">
+			<img class="questionWaterImg" src="WaterImg/TextQ3.png" alt="pytanie3">
+			<div class="swapLettersQuest5">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q8H2', 7)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q9H2', 8)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q10H2', 9)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q11H2', 10)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+				<img class="arrowImg" onclick="moveLetter(-1, 'Q12H2', 11)" src="WaterImg/ArrowUp.png" alt="strzałka w górę">
+
+				<h2 id="Q8H2"  class="waterTextH2">a</h2>
+				<h2 id="Q9H2"  class="waterTextH2">s</h2>
+				<h2 id="Q10H2" class="waterTextH2">g</h2>
+				<h2 id="Q11H2" class="waterTextH2">g</h2>
+				<h2 id="Q12H2" class="waterTextH2">h</h2>
+
+				<img class="arrowImg" onclick="moveLetter(1, 'Q8H2', 7)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q9H2', 8)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q10H2', 9)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q11H2', 10)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+				<img class="arrowImg" onclick="moveLetter(1, 'Q12H2', 11)" src="WaterImg/ArrowDown.png" alt="strzałka w dół">
+			</div>
+		</div>
+		<div id="WaterTextAnswer" style="display: none">
+			<h3 class="narrate">Uff. Po kilku drapnięciach w głowę i pacnięciach w przyciski udaje ci się złamać ostatni szyfr. Automatyczne drzwi otwierają się bezgłośnie, a ty zaglądasz w głąb 
+				tej wyjątkowej budowli.
+			</h3>
+			<button class="button-5" onclick="window.location.href='Water3.html'">Wchodzę do środka!</button>
+		</div>
 	</div>
 </body>
 </html>
