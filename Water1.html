@@ -14,6 +14,57 @@
 		function mainHall() {
 			window.location.href = "The_Main_Hall.html";
 		}
+
+		function answer1(x) {
+			if (x==1)
+			{
+				document.getElementById("A1").textContent = "Tak jest!";
+				document.getElementById("A1").style.color = "rgb(127, 199, 20)";
+				document.getElementById("Q2").style.display = "block";
+			}
+			else
+			{
+				if (document.getElementById("A1").textContent != "Tak jest!")
+				{
+					document.getElementById("A1").textContent = "Emm.. spróbuj jeszcze raz.";
+					document.getElementById("A1").style.color = "red";
+				}
+			}
+		}
+
+		function answer2(x) {
+			if (x==1)
+			{
+				document.getElementById("A2").textContent = "Tak jest!";
+				document.getElementById("A2").style.color = "rgb(127, 199, 20)";
+				document.getElementById("Q3").style.display = "block";
+			}
+			else
+			{
+				if (document.getElementById("A2").textContent != "Tak jest!")
+				{
+					document.getElementById("A2").textContent = "Emm.. spróbuj jeszcze raz.";
+					document.getElementById("A2").style.color = "red";
+				}
+			}
+		}
+
+		function answer3(x) {
+			if (x==0)
+			{
+				document.getElementById("A3").textContent = "Tak jest!";
+				document.getElementById("A3").style.color = "rgb(127, 199, 20)";
+				document.getElementById("FinalA").style.display = "block";
+			}
+			else
+			{
+				if (document.getElementById("A3").textContent != "Tak jest!")
+				{
+					document.getElementById("A3").textContent = "Kurcze, coś chyba nie ten tego.";
+					document.getElementById("A3").style.color = "red";
+				}
+			}
+		}
 	</script>
 </head>
 <body>
@@ -41,16 +92,39 @@
 		<h3 class="narrate">Ponieważ nie jesteś pewna gdzie pójść dalej, decydujesz się spróbować swoich sił w teście.</h3>
 		<br>
 		<div id="Q1">
-			<img class="questionWaterImg" src="WaterImg/Q1.png" alt="pytanie1">
+			<img class="questionWaterImg" src="WaterImg/Q1.png" alt="pytanie1" style="width: 50%; margin-bottom: 10px;">
 			<div class="answer4div">
-				<img src="WaterImg/answer1A.png" alt="odpowiedz1">
-				<img src="WaterImg/answer1B.png" alt="odpowiedz2">
-				<img src="WaterImg/answer1C.png" alt="odpowiedz3">
-				<img src="WaterImg/answer1D.png" alt="odpowiedz4">
+				<img src="WaterImg/answer1A.png" alt="odpowiedz1" onclick="answer1(0)">
+				<img src="WaterImg/answer1B.png" alt="odpowiedz2" onclick="answer1(1)">
+				<img src="WaterImg/answer1C.png" alt="odpowiedz3" onclick="answer1(2)">
+				<img src="WaterImg/answer1D.png" alt="odpowiedz4" onclick="answer1(3)">
 			</div>
+			<h3 id="A1" class="narrate"></h3>
 		</div>
 
-		<button class="button-5" onclick="window.location.href='Water2.html'">Dalej</button>
+		<div id="Q2" style="display: none">
+			<img class="questionWaterImg" src="WaterImg/Q2.png" alt="pytanie2" style="width: 50%; margin-bottom: 10px;">
+			<div class="answer4div">
+				<img src="WaterImg/answer2A.png" alt="odpowiedz1" onclick="answer2(0)">
+				<img src="WaterImg/answer2B.png" alt="odpowiedz2" onclick="answer2(1)">
+				<img src="WaterImg/answer2C.png" alt="odpowiedz3" onclick="answer2(2)">
+				<img src="WaterImg/answer2D.png" alt="odpowiedz4" onclick="answer2(3)">
+			</div>
+			<h3 id="A2" class="narrate"></h3>
+		</div>
+
+		<div id="Q3" style="display: none">
+			<img class="questionWaterImg" src="WaterImg/Q3.png" alt="pytanie3" style="width: 50%; margin-bottom: 10px;">
+			<div class="answer4div">
+				<img src="WaterImg/answer3A.png" alt="odpowiedz1" onclick="answer3(0)">
+				<img src="WaterImg/answer3B.png" alt="odpowiedz2" onclick="answer3(1)">
+				<img src="WaterImg/answer3C.png" alt="odpowiedz3" onclick="answer3(2)">
+				<img src="WaterImg/answer3D.png" alt="odpowiedz4" onclick="answer3(3)">
+			</div>
+			<h3 id="A3" class="narrate"></h3>
+		</div>
+
+		<button id="FinalA" class="button-5" onclick="window.location.href='Water2.html'" style="display: none;">Zakończ test</button>
 	</div>
 </body>
 </html>
